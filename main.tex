@@ -1,6 +1,7 @@
 \documentclass[12pt]{report}
 
 \usepackage{graphicx}
+\usepackage{tabularx}
 \usepackage[utf8]{inputenc}
 \usepackage[vietnamese]{babel}
 \usepackage{titlesec}
@@ -25,10 +26,12 @@
 \renewcommand{\cftchappagefont}{\bfseries\Large}
 \renewcommand{\cftsecpagefont}{\bfseries\Large}
 \renewcommand{\cftsubsecpagefont}{\bfseries\Large}
+\renewcommand{\cftsubsubsecpagefont}{\bfseries\Large}
 
 % Optional: Adjust spacing between entries so they don't look crowded
 \setlength{\cftbeforesecskip}{10pt}
 \setlength{\cftbeforesubsecskip}{5pt}
+\setlength{\cftbeforesubsubsecskip}{5pt}
 
 \titleformat{\chapter}[hang] 
     {\normalfont\huge\bfseries}{\thechapter.}{1em}{}
@@ -41,6 +44,10 @@
 \titleformat{\subsection}
     {\normalfont\large\bfseries}{\thesubsection}{1em}{}
 \titlespacing*{\subsection}{0pt}{10pt}{5pt}
+
+\titleformat{\subsubsection}
+    {\normalfont\large\bfseries}{\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{10pt}{5pt}
 
 \begin{document}
 
@@ -82,24 +89,49 @@
 \pagebreak
 
 \chapter{Hệ thống các yêu cầu phần mềm}
-    \section{Danh sách các yêu cầu nghiệp vụ}
+    \section{Yêu cầu nghiệp vụ}
+        \subsection{Danh sách các yêu cầu nghiệp vụ}
+            % phần thêm/chỉnh sửa thông tin
+            \begin{tabular}{|c|l|c|c|c|}
+                \hline
+                \textbf{STT} & \textbf{Yêu cầu} & 
+                \textbf{Biểu mẫu} & \textbf{Quy định} & 
+                \textbf{Ghi chú} \\ \hline
+                1 & Lập phiếu nhập sách & BM1 & QĐ1 & \\ \hline
+                2 & Lập hóa đơn bán sách & BM2 & QĐ2 & \\ \hline
+                3 & Tra cứu sách & BM3 & & \\ \hline
+                4 & Lập phiếu thu tiền & BM4 & QĐ4 & \\ \hline
+                5 & Lập báo cáo tháng & BM5 & & \\ \hline
+                6 & Thay đổi qui định & & QĐ6 & \\ \hline
+            \end{tabular}
+        \subsection{Danh sách các biểu mẫu và quy định}
+        \subsection{Bảng trách nhiệm yêu cầu nghiệp vụ}
+            % Phần thêm/chỉnh sửa thông tin
+            \begin{tabularx}{\textwidth}{|c|X|X|X|l|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Người dùng} & \textbf{Phần mềm} & 
+                \textbf{Ghi chú} \\ \hline
+    
+                1 & Lập phiếu nhập sách & Cung cấp thông tin theo BM1 & Kiểm tra QĐ1 và ghi nhận & Xóa, cập nhật \\ \hline
+                2 & Lập hóa đơn bán sách & Cung cấp thông tin theo BM2 & Kiểm tra QĐ2 và ghi nhận & Xóa, cập nhật \\ \hline
+                3 & Tra cứu sách & Cung cấp thông tin sách & Tìm và xuất theo BM3 & \\ \hline
+                4 & Lập phiếu thu tiền & Cho biết thông tin sách & Ghi nhận, xuất BM4 theo QĐ4 & \\ \hline
+                5 & Lập báo cáo tháng & Cung cấp tháng cần lập báo cáo & Xuất báo cáo theo BM5 & \\ \hline
+                6 & Thay đổi qui định & Thay đổi các quy định theo QĐ6 & Cập nhật quy định & \\ \hline
+            \end{tabularx}
+    \section{Yêu cầu tiến hóa}
         Phần thêm/chỉnh sửa thông tin
-    \section{Bảng trách nhiệm yêu cầu nghiệp vụ}
+    \section{Yêu cầu hiệu quả}
         Phần thêm/chỉnh sửa thông tin
-    \section{Danh sách các yêu cầu chất lượng}
-        \subsection{Yêu cầu tiến hóa}
-            Phần thêm/chỉnh sửa thông tin
-        \subsection{Yêu cầu hiệu quả}
-            Phần thêm/chỉnh sửa thông tin
-        \subsection{Yêu cầu tiện dụng}
-            Phần thêm/chỉnh sửa thông tin
-    \section{Danh sách các yêu cầu hệ thống}
-        \subsection{Yêu cầu tương thích}
-            Phần thêm/chỉnh sửa thông tin
-        \subsection{Yêu cầu bảo mật}
-            Phần thêm/chỉnh sửa thông tin
-        \subsection{Yêu cầu an toàn}
-            Phần thêm/chỉnh sửa thông tin
+    \section{Yêu cầu tiện dụng}
+        Phần thêm/chỉnh sửa thông tin
+    \section{Yêu cầu tương thích}
+        Phần thêm/chỉnh sửa thông tin
+    \section{Yêu cầu bảo mật}
+        Phần thêm/chỉnh sửa thông tin
+    \section{Yêu cầu an toàn}
+        Phần thêm/chỉnh sửa thông tin
     \section{Danh sách các yêu cầu công nghệ}
         Phần thêm/chỉnh sửa thông tin
 \chapter{Phân tích xử lý dữ liệu}
