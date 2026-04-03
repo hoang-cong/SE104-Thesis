@@ -2,6 +2,7 @@
 
 \usepackage{graphicx}
 \usepackage{tabularx}
+\usepackage{ragged2e}
 \usepackage[utf8]{inputenc}
 \usepackage[vietnamese]{babel}
 \usepackage{titlesec}
@@ -12,21 +13,25 @@
             bottom=2cm]{geometry}
 \usepackage{tocloft}
 
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
 % Indent subsections slightly more than sections for a hierarchy look
 \cftsetindents{section}{1.5em}{3.5em}
 \cftsetindents{subsection}{3.0em}{4.5em}
+\cftsetindents{subsubsection}{4.5em}{5.5em}
 
 \renewcommand{\cftchapfont}{\bfseries\Large}
 % 1. Make Section entries in TOC bold and Large
-\renewcommand{\cftsecfont}{\bfseries\Large} 
+\renewcommand{\cftsecfont}{\bfseries\large} 
 % 2. Make Subsection entries in TOC bold and large (slightly smaller than section)
-\renewcommand{\cftsubsecfont}{\bfseries\Large}
+\renewcommand{\cftsubsecfont}{\large}
+\renewcommand{\cftsubsubsecfont}{\large}
 
 % Optional: Adjust the page number sizes to match
 \renewcommand{\cftchappagefont}{\bfseries\Large}
-\renewcommand{\cftsecpagefont}{\bfseries\Large}
-\renewcommand{\cftsubsecpagefont}{\bfseries\Large}
-\renewcommand{\cftsubsubsecpagefont}{\bfseries\Large}
+\renewcommand{\cftsecpagefont}{\bfseries\large}
+\renewcommand{\cftsubsecpagefont}{\large}
+\renewcommand{\cftsubsubsecpagefont}{\large}
 
 % Optional: Adjust spacing between entries so they don't look crowded
 \setlength{\cftbeforesecskip}{10pt}
@@ -34,7 +39,7 @@
 \setlength{\cftbeforesubsubsecskip}{5pt}
 
 \titleformat{\chapter}[hang] 
-    {\normalfont\huge\bfseries}{\thechapter.}{1em}{}
+    {\normalfont\Large\bfseries}{\thechapter.}{1em}{}
 \titlespacing*{\chapter}{0pt}{-10pt}{20pt}
 
 \titleformat{\section}
@@ -42,12 +47,16 @@
 \titlespacing*{\section}{0pt}{15pt}{20pt}
 
 \titleformat{\subsection}
-    {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+    {\normalfont\bfseries}{\thesubsection}{1em}{}
 \titlespacing*{\subsection}{0pt}{10pt}{5pt}
 
 \titleformat{\subsubsection}
-    {\normalfont\large\bfseries}{\thesubsubsection}{1em}{}
+    {\normalfont}{\thesubsubsection}{1em}{}
 \titlespacing*{\subsubsection}{0pt}{10pt}{5pt}
+
+\titleformat{\paragraph}
+    {\normalfont}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{10pt}{5pt}
 
 \begin{document}
 
@@ -105,9 +114,66 @@
                 6 & Thay đổi qui định & & QĐ6 & \\ \hline
             \end{tabular}
         \subsection{Danh sách các biểu mẫu và quy định}
+            \subsubsection{Biểu mẫu 1 và quy định 1}
+                \begin{tabular}{|c|c|c|c|c|}
+                    \hline
+                    \textbf{STT} & \textbf{Tên sách} & 
+                    \textbf{Thể loại} & \textbf{Tác giả} & 
+                    \textbf{Đơn giá} \\ \hline
+                     & & & & \\ \hline
+                     & & & & \\ \hline
+                     & & & & \\ \hline
+                \end{tabular}
+                \paragraph{QĐ1: Phần thêm quy định}
+            \subsubsection{Biểu mẫu 2 và quy định 2}
+                \begin{tabular}{|c|c|c|c|c|}
+                        \hline
+                        \textbf{STT} & \textbf{Tên sách} & 
+                        \textbf{Thể loại} & \textbf{Tác giả} & 
+                    \textbf{Đơn giá} \\ \hline
+                     & & & & \\ \hline
+                     & & & & \\ \hline
+                     & & & & \\ \hline
+                \end{tabular}
+                \paragraph{QĐ2: Phần thêm quy định}
+            \subsubsection{Biểu mẫu 3}
+                \begin{tabular}{|c|c|c|c|c|}
+                        \hline
+                    \textbf{STT} & \textbf{Tên sách} & 
+                    \textbf{Thể loại} & \textbf{Tác giả} & 
+                    \textbf{Đơn giá} \\ \hline
+                     & & & & \\ \hline
+                     & & & & \\ \hline
+                     & & & & \\ \hline
+                \end{tabular}
+            \subsubsection{Biểu mẫu 4 và quy định 4}
+                \begin{tabular}{|c|c|c|c|c|}
+                    \hline
+                    \textbf{STT} & \textbf{Tên sách} & 
+                    \textbf{Thể loại} & \textbf{Tác giả} & 
+                    \textbf{Đơn giá} \\ \hline
+                     & & & & \\ \hline
+                     & & & & \\ \hline
+                     & & & & \\ \hline
+                \end{tabular}
+                \paragraph{QĐ4: Phần thêm quy định}
+            \subsubsection{Biểu mẫu 5}
+                \begin{tabular}{|c|c|c|c|c|}
+                    \hline
+                    \textbf{STT} & \textbf{Tên sách} & 
+                    \textbf{Thể loại} & \textbf{Tác giả} & 
+                    \textbf{Đơn giá} \\ \hline
+                     & & & & \\ \hline
+                     & & & & \\ \hline
+                     & & & & \\ \hline
+                \end{tabular}
+            \subsubsection{Quy định 6}
+                \paragraph{QĐ1: Phần thay đổi quy định}
+                \paragraph{QĐ2: Phần thay đổi quy định}
+                \paragraph{QĐ4: Phần thay đổi quy định}
         \subsection{Bảng trách nhiệm yêu cầu nghiệp vụ}
             % Phần thêm/chỉnh sửa thông tin
-            \begin{tabularx}{\textwidth}{|c|X|X|X|l|}
+            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
                 \hline
                 \textbf{STT} & \textbf{Nghiệp vụ} & 
                 \textbf{Người dùng} & \textbf{Phần mềm} & 
@@ -121,19 +187,89 @@
                 6 & Thay đổi qui định & Thay đổi các quy định theo QĐ6 & Cập nhật quy định & \\ \hline
             \end{tabularx}
     \section{Yêu cầu tiến hóa}
-        Phần thêm/chỉnh sửa thông tin
+        \subsection{Danh sách các yêu cầu tiến hóa}
+            \begin{tabular}{|c|l|l|l|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Tham số cần thay đổi} & \textbf{Miền giá trị cần thay đổi} \\ \hline
+                 & & & \\ \hline
+                 & & & \\ \hline
+                 & & & \\ \hline
+            \end{tabular}
+        \subsection{Bảng trách nhiệm yêu cầu tiến hóa}
+            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Người dùng} & \textbf{Phần mềm} & 
+                \textbf{Ghi chú} \\ \hline
+                 & & & & \\ \hline
+                 & & & & \\ \hline
+                 & & & & \\ \hline
+            \end{tabularx}
     \section{Yêu cầu hiệu quả}
-        Phần thêm/chỉnh sửa thông tin
+        \subsection{Danh sách các yêu cầu hiệu quả}
+            \paragraph{Máy tính với CPU..., RAM..., đĩa cứng...}
+            \begin{tabular}{|c|l|l|l|c|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Tốc độ xử lý} & \textbf{Dung lượng lưu trữ} & Ghi chú \\ \hline
+                1 & Lập phiếu nhập sách & & & \\ \hline
+                2 & Lập hóa đơn bán sách & & & \\ \hline
+                3 & Tra cứu sách & & & \\ \hline
+                4 & Lập phiếu thu tiền & & & \\ \hline
+                5 & Lập báo cáo tháng & & & \\ \hline
+                6 & Thay đổi qui định & & & \\ \hline
+            \end{tabular}
+        \subsection{Bảng trách nhiệm yêu cầu hiệu quả}
+            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Người dùng} & \textbf{Phần mềm} & 
+                \textbf{Ghi chú} \\ \hline
+    
+                1 & Lập phiếu nhập sách & & & \\ \hline
+                2 & Lập hóa đơn bán sách & & & \\ \hline
+                3 & Tra cứu sách & & & \\ \hline
+                4 & Lập phiếu thu tiền & & & \\ \hline
+                5 & Lập báo cáo tháng & & & \\ \hline
+                6 & Thay đổi qui định & & & \\ \hline
+            \end{tabularx}
     \section{Yêu cầu tiện dụng}
-        Phần thêm/chỉnh sửa thông tin
+        \subsection{Danh sách các yêu cầu tiện dụng}
+            \paragraph{Phần thêm thông tin}
+            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|c|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Mức độ dễ học} & \textbf{Mức độ dễ sử dụng} & Ghi chú \\ \hline
+                1 & Lập phiếu nhập sách & & & \\ \hline
+                2 & Lập hóa đơn bán sách & & & \\ \hline
+                3 & Tra cứu sách & & & \\ \hline
+                4 & Lập phiếu thu tiền & & & \\ \hline
+                5 & Lập báo cáo tháng & & & \\ \hline
+                6 & Thay đổi qui định & & & \\ \hline
+            \end{tabularx}
+        \subsection{Bảng trách nhiệm yêu cầu tiện dụng}
+            \paragraph{Máy tính với CPU..., RAM..., đĩa cứng...}
+            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|c|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Người dùng} & \textbf{Phần mềm} & Ghi chú \\ \hline
+                1 & Phục hồi & & & \\ \hline
+                2 & Hủy thật sự & & & \\ \hline
+                3 & Không cho phép xóa & & & \\ \hline
+            \end{tabularx}
     \section{Yêu cầu tương thích}
-        Phần thêm/chỉnh sửa thông tin
+        \subsection{Danh sách các yêu cầu tương thích}
+        \subsection{Bảng trách nhiệm yêu cầu tương thích}
     \section{Yêu cầu bảo mật}
-        Phần thêm/chỉnh sửa thông tin
+        \subsection{Danh sách các yêu cầu bảo mật}
+        \subsection{Bảng trách nhiệm yêu cầu bảo mật}
     \section{Yêu cầu an toàn}
-        Phần thêm/chỉnh sửa thông tin
+        \subsection{Danh sách các yêu cầu an toàn}
+        \subsection{Bảng trách nhiệm yêu cầu an toàn}
     \section{Danh sách các yêu cầu công nghệ}
-        Phần thêm/chỉnh sửa thông tin
+        \subsection{Danh sách các yêu cầu công nghệ}
+        \subsection{Bảng trách nhiệm yêu cầu công nghệ}
 \chapter{Phân tích xử lý dữ liệu}
     Phần thêm/chỉnh sửa thông tin
 \chapter{Thiết kế dữ liệu}
