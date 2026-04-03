@@ -12,6 +12,12 @@
             top=2cm, 
             bottom=2cm]{geometry}
 \usepackage{tocloft}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+}
 
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
@@ -158,6 +164,8 @@
                 \end{tabular}
                 \paragraph{QĐ4: Phần thêm quy định}
             \subsubsection{Biểu mẫu 5}
+                \paragraph{Báo cáo doanh thu theo loại sách}
+                \paragraph{Tháng: }
                 \begin{tabular}{|c|c|c|c|c|}
                     \hline
                     \textbf{STT} & \textbf{Tên sách} & 
@@ -168,9 +176,9 @@
                      & & & & \\ \hline
                 \end{tabular}
             \subsubsection{Quy định 6}
-                \paragraph{QĐ1: Phần thay đổi quy định}
-                \paragraph{QĐ2: Phần thay đổi quy định}
-                \paragraph{QĐ4: Phần thay đổi quy định}
+                \paragraph{QĐ1: Thay đổi số lượng sách tối đa cho mỗi loại sách}
+                \paragraph{QĐ2: Thay đổi đơn giá các loại sách}
+                \paragraph{QĐ4: Thay đổi tỷ lệ phụ thu}
         \subsection{Bảng trách nhiệm yêu cầu nghiệp vụ}
             % Phần thêm/chỉnh sửa thông tin
             \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
@@ -188,23 +196,23 @@
             \end{tabularx}
     \section{Yêu cầu tiến hóa}
         \subsection{Danh sách các yêu cầu tiến hóa}
-            \begin{tabular}{|c|l|l|l|}
+            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
                 \hline
                 \textbf{STT} & \textbf{Nghiệp vụ} & 
                 \textbf{Tham số cần thay đổi} & \textbf{Miền giá trị cần thay đổi} \\ \hline
-                 & & & \\ \hline
-                 & & & \\ \hline
-                 & & & \\ \hline
-            \end{tabular}
+                1 & Thay đổi số lượng và đơn giá các loại sách & & Loại phòng, đơn giá \\ \hline
+                2 & Thay đổi số lượng sách tối đa cho mỗi loại sách & Số sách tối đa của mỗi loại & Loại sách \\ \hline
+                3 & Thay đổi tỷ lệ phụ thu & Tỷ lệ phụ thu & \\ \hline
+            \end{tabularx}
         \subsection{Bảng trách nhiệm yêu cầu tiến hóa}
             \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
                 \hline
                 \textbf{STT} & \textbf{Nghiệp vụ} & 
                 \textbf{Người dùng} & \textbf{Phần mềm} & 
                 \textbf{Ghi chú} \\ \hline
-                 & & & & \\ \hline
-                 & & & & \\ \hline
-                 & & & & \\ \hline
+                1 & Thay đổi số lượng và đơn giá các loại sách & Cho biết loại phòng và đơn giá tương ứng & Ghi nhận giá trị mới và cách thức kiểm tra & \\ \hline
+                2 & Thay đổi số lượng sách tối đa cho mỗi loại sách & Cho biết số lượng sách tói đa cho mỗi loại & Ghi nhận giá trị mới và cách thức kiểm tra & \\ \hline
+                3 & Thay đổi tỷ lệ phụ thu & Cho biết tỷ lệ phụ thu & Ghi nhận giá trị mới & \\ \hline
             \end{tabularx}
     \section{Yêu cầu hiệu quả}
         \subsection{Danh sách các yêu cầu hiệu quả}
@@ -213,12 +221,12 @@
                 \hline
                 \textbf{STT} & \textbf{Nghiệp vụ} & 
                 \textbf{Tốc độ xử lý} & \textbf{Dung lượng lưu trữ} & Ghi chú \\ \hline
-                1 & Lập phiếu nhập sách & & & \\ \hline
-                2 & Lập hóa đơn bán sách & & & \\ \hline
-                3 & Tra cứu sách & & & \\ \hline
-                4 & Lập phiếu thu tiền & & & \\ \hline
-                5 & Lập báo cáo tháng & & & \\ \hline
-                6 & Thay đổi qui định & & & \\ \hline
+                1 & Lập phiếu nhập sách & 3 phiếu / phút & & \\ \hline
+                2 & Lập hóa đơn bán sách & 3 hóa đơn / phút & & \\ \hline
+                3 & Tra cứu sách & Ngay lập tức & & \\ \hline
+                4 & Lập phiếu thu tiền & 3 phiếu / phút & & \\ \hline
+                5 & Lập báo cáo tháng & 3 phiếu / phút & & \\ \hline
+                6 & Thay đổi qui định & Ngay lập tức & & \\ \hline
             \end{tabular}
         \subsection{Bảng trách nhiệm yêu cầu hiệu quả}
             \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
@@ -241,15 +249,14 @@
                 \hline
                 \textbf{STT} & \textbf{Nghiệp vụ} & 
                 \textbf{Mức độ dễ học} & \textbf{Mức độ dễ sử dụng} & Ghi chú \\ \hline
-                1 & Lập phiếu nhập sách & & & \\ \hline
-                2 & Lập hóa đơn bán sách & & & \\ \hline
-                3 & Tra cứu sách & & & \\ \hline
-                4 & Lập phiếu thu tiền & & & \\ \hline
-                5 & Lập báo cáo tháng & & & \\ \hline
+                1 & Lập phiếu nhập sách & 5 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 1\% & \\ \hline
+                2 & Lập hóa đơn bán sách & 5 phút hướng dẫn & Tỷ lệ không chính xác là 0.5\% & \\ \hline
+                3 & Tra cứu sách & Không cần hướng dẫn & Không biết đầy đủ thông tin về sách muốn tìm & \\ \hline
+                4 & Lập phiếu thu tiền & 5 phút hướng dẫn & Tỷ lệ không chính xác là 0.5\% & \\ \hline
+                5 & Lập báo cáo tháng & 10 phút hướng dẫn & Tỷ lệ không chính xác là 0.5\% & \\ \hline
                 6 & Thay đổi qui định & & & \\ \hline
             \end{tabularx}
         \subsection{Bảng trách nhiệm yêu cầu tiện dụng}
-            \paragraph{Máy tính với CPU..., RAM..., đĩa cứng...}
             \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|c|}
                 \hline
                 \textbf{STT} & \textbf{Nghiệp vụ} & 
@@ -260,15 +267,78 @@
             \end{tabularx}
     \section{Yêu cầu tương thích}
         \subsection{Danh sách các yêu cầu tương thích}
+            \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Đối tượng liên quan} & \textbf{Ghi chú} \\ \hline
+                1 & Lưu phiếu nhập sách & Đến kết nối cơ sở dữ liệu có hỗ trợ SQL Server & Độc lập phiên bản \\ \hline
+                2 & Lưu hóa đơn bán sách & Microsoft Excel & Độc lập phiên bản \\ \hline
+                4 & Xuất phiếu thu tiền & Đến máy in & Độc lập máy in \\ \hline
+                5 & Xuất báo cáo tháng & Đến máy in & Độc lập máy in \\ \hline
+            \end{tabularx}
         \subsection{Bảng trách nhiệm yêu cầu tương thích}
+            \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|l|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Người dùng} & \textbf{Phần mềm} & \textbf{Ghi chú} \\ \hline
+                1 & Lưu phiếu nhập sách & Cần cài đặt và tạo kết nối cơ sở dữ liệu SQL & Thực hiện theo đúng yêu cầu & \\ \hline
+                2 & Lưu hóa đơn bán sách & Cho biết cấu trúc Excel và cấu trúc theo biểu mẫu & Thực hiện theo đúng yêu cầu & \\ \hline
+                3 & Xuất phiếu thu tiền & Chuẩn bị máy in đã được kết nối và phiếu thu tương ứng & Thực hiện theo đúng yêu cầu & \\ \hline
+                4 & Xuất báo cáo tháng & Chuẩn bị máy in đã được kết nối và tháng cần xuất & Thực hiện theo đúng yêu cầu & \\ \hline
+            \end{tabularx}
     \section{Yêu cầu bảo mật}
         \subsection{Danh sách các yêu cầu bảo mật}
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Quản trị hệ thống} & \textbf{Ban quản lý} & \textbf{Khác} \\ \hline
+                1 & Phân quyền & X & & \\ \hline
+                2 & Lưu phiếu nhập sách & & X & \\ \hline
+                3 & Lưu hóa đơn bán sách & & X & \\ \hline
+                4 & Tra cứu sách & X & X & X \\ \hline
+                5 & Xuất phiếu thu tiền & & X & \\ \hline
+                6 & Xuất báo cáo tháng & & X & \\ \hline
+                7 & Thay đổi quy định & X & X & \\ \hline
+            \end{tabular}
         \subsection{Bảng trách nhiệm yêu cầu bảo mật}
+            \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
+                \hline
+                \textbf{STT} & \textbf{Người dùng} & 
+                \textbf{Trách nhiệm} & \textbf{Phần mềm} & \textbf{Ghi chú} \\ \hline
+                1 & Quản trị & Cho biết các người dùng mới và quyền hạn tương ứng & Ghi nhận và thực hiện đúng & Có thể hủy và thay đổi quyền hạn \\ \hline
+                2 & Ban quản lý & Cung cấp tên, mật khẩu và thay đổi các quy định & Ghi nhận và thực hiện đúng & Có thể thay đổi mật khẩu \\ \hline
+                3 & Khác & & Ghi nhận và thực hiện đúng & Tên chung \\ \hline
+            \end{tabularx}
     \section{Yêu cầu an toàn}
         \subsection{Danh sách các yêu cầu an toàn}
+            \begin{tabular}{|c|l|l|l|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Đối tượng} & Ghi chú \\ \hline
+                1 & Phục hồi & Các phiếu, hóa đơn, báo cáo & \\ \hline
+                2 & Hủy thật sự & Các phiếu nhập sách & \\ \hline
+                3 & Không cho phép xóa & Phiếu thu tiền & \\ \hline
+            \end{tabular}
         \subsection{Bảng trách nhiệm yêu cầu an toàn}
-    \section{Danh sách các yêu cầu công nghệ}
+            \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|l|}
+                \hline
+                \textbf{STT} & \textbf{Nghiệp vụ} & 
+                \textbf{Người dùng} & \textbf{Phần mềm} & Ghi chú \\ \hline
+                1 & Phục hồi & Cho biết các thông tin có liên quan & Có hỗ trợ cho việc phục hồi & \\ \hline
+                2 & Hủy thật sự & Cho biết phiếu cần hủy & Thực hiện hủy & \\ \hline
+                3 & Không cho phép xóa & & Thực hiện theo đúng yêu cầu & \\ \hline
+            \end{tabularx}
+    \section{Yêu cầu công nghệ}
         \subsection{Danh sách các yêu cầu công nghệ}
+            \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|}
+                \hline
+                \textbf{STT} & \textbf{Yêu cầu} & 
+                \textbf{Mô tả chi tiết} & Ghi chú \\ \hline
+                1 & Dễ sủa lỗi & Xác định lỗi trung bình trong vòng 20 phút & Khi sửa lỗi một chức năng không ảnh hưởng đến các chức năng khác \\ \hline
+                2 & Dễ bảo trì & Thêm các chức năng mới nhanh & Không ảnh hưởng đến các chức năng đã có \\ \hline
+                3 & Tái sử dụng & Xây dựng phần mềm quản lý thư viện & Phần mềm mới phải cùng các yêu cầu \\ \hline
+                4 & Dễ mang chuyển & Đổi sang hệ quản trị cớ sở dữ liệu mới trong vòng 2 ngày & Phần mềm mới phải cùng các yêu cầu \\ \hline
+            \end{tabularx}
         \subsection{Bảng trách nhiệm yêu cầu công nghệ}
 \chapter{Phân tích xử lý dữ liệu}
     Phần thêm/chỉnh sửa thông tin
