@@ -13,6 +13,7 @@
             bottom=2cm]{geometry}
 \usepackage{tocloft}
 \usepackage{hyperref}
+\usepackage{float}
 
 \hypersetup{
     colorlinks=true,
@@ -70,8 +71,8 @@
     \centering
 
     \Large
-    Đại học Quốc gia TP HCM \\
-    Trường Đại học Công nghệ thông tin \\
+    TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN \\
+    \textbf{LỚP SE104.Q28} \\
     \date{2026}
     
     \vspace{0.8cm}
@@ -91,9 +92,9 @@
     \vfill
     \vspace{1.5cm}
     \textbf{Nhóm sinh viên thực hiện} \\
-    Sinh viên 1 - MSSV1 \\
-    Sinh viên 2 - MSSV2 \\
-    Sinh viên 3 - MSSV3 \\
+    Nguyễn Công Hoàng - 24520550 \\
+    Đỗ Gia Huy - 24520657 \\
+    Nguyễn Ngọc Hưng - 24520610 \\
 
 \end{titlepage}
 
@@ -106,43 +107,57 @@
 \chapter{Hệ thống các yêu cầu phần mềm}
     \section{Yêu cầu nghiệp vụ}
         \subsection{Danh sách các yêu cầu nghiệp vụ}
-            % phần thêm/chỉnh sửa thông tin
             \begin{tabular}{|c|l|c|c|c|}
                 \hline
                 \textbf{STT} & \textbf{Yêu cầu} & 
                 \textbf{Biểu mẫu} & \textbf{Quy định} & 
                 \textbf{Ghi chú} \\ \hline
-                1 & Lập phiếu nhập sách & BM1 & QĐ1 & \\ \hline
-                2 & Lập hóa đơn bán sách & BM2 & QĐ2 & \\ \hline
-                3 & Tra cứu sách & BM3 & & \\ \hline
-                4 & Lập phiếu thu tiền & BM4 & QĐ4 & \\ \hline
+                1 & Đăng nhập hệ thống / tạo tài khoản & BM1 & QĐ1 & \\ \hline
+                2 & Lập phiếu nhập sách & BM2 & QĐ2 & \\ \hline
+                3 & Lập hóa đơn bán sách & BM3 & QĐ3 & \\ \hline
+                4 & Tra cứu sách & BM3 & & \\ \hline
                 5 & Lập báo cáo tháng & BM5 & & \\ \hline
-                6 & Thay đổi qui định & & QĐ6 & \\ \hline
+                6 & Thay đổi quy định & & QĐ6 & \\ \hline
             \end{tabular}
         \subsection{Danh sách các biểu mẫu và quy định}
             \subsubsection{Biểu mẫu 1 và quy định 1}
-                \begin{tabular}{|c|c|c|c|c|}
+                \paragraph{BM1: Đăng nhập hệ thống}
+                \vspace{0.2cm}
+                \noindent\begin{tabular}{|l|}
+                    \hline
+                    Email: \dots\dots\dots\dots\dots\dots\dots \\ \hline
+                    Mật khẩu: \dots\dots\dots\dots\dots\dots \\ \hline
+                \end{tabular}
+                \paragraph{QĐ1: Tài khoản email đăng nhập phải tồn tại.}
+            \subsubsection{Biểu mẫu 2 và quy định 2}
+                \paragraph{BM2: Phiếu nhập sách}
+                \paragraph{Ngày nhập:}
+                \begin{tabular}{|c|c|c|c|c|c|c|}
                     \hline
                     \textbf{STT} & \textbf{Tên sách} & 
-                    \textbf{Thể loại} & \textbf{Tác giả} & 
-                    \textbf{Đơn giá} \\ \hline
-                     & & & & \\ \hline
-                     & & & & \\ \hline
-                     & & & & \\ \hline
+                    \textbf{Thể loại} & \textbf{Tác giả} & \textbf{Số lượng} &
+                    \textbf{Đơn giá} & \textbf{Thành tiền} \\ \hline
+                    1 & & & & & & \\ \hline
+                    2 & & & & & & \\ \hline
+                    3 & & & & & & \\ \hline
                 \end{tabular}
-                \paragraph{QĐ1: Phần thêm quy định}
-            \subsubsection{Biểu mẫu 2 và quy định 2}
-                \begin{tabular}{|c|c|c|c|c|}
+                \paragraph{QĐ2: Số lượng nhập ít nhất lá \textbf{150}. Chỉ nhập các đầu sách có lượng tồn ít hơn \textbf{300}.}
+            \subsubsection{Biểu mẫu 3 và quy định 3}
+                \paragraph{BM3: Hóa đơn bán sách}
+                \paragraph{Ngày lập hóa đơn:}
+                \begin{tabular}{|c|l|c|c|c|c|}
                         \hline
                         \textbf{STT} & \textbf{Tên sách} & 
                         \textbf{Thể loại} & \textbf{Tác giả} & 
-                    \textbf{Đơn giá} \\ \hline
-                     & & & & \\ \hline
-                     & & & & \\ \hline
-                     & & & & \\ \hline
+                    \textbf{Đơn giá} & \textbf{Thành tiền} \\ \hline
+                    1 & & & & &\\ \hline
+                    2 & & & & & \\ \hline
+                    3 & & & & & \\ \hline
+                    \multicolumn{5}{|r|}{\textbf{Tổng tiền thanh toán:}} & \\ \hline
                 \end{tabular}
-                \paragraph{QĐ2: Phần thêm quy định}
-            \subsubsection{Biểu mẫu 3}
+                \paragraph{QĐ3: Chỉ bán các đầu sách có lượng tồn sau khi bán ít nhất là \textbf{20}.}
+            \subsubsection{Biểu mẫu 4}
+                \paragraph{BM4: Tra cứu sách}
                 \begin{tabular}{|c|c|c|c|c|}
                         \hline
                     \textbf{STT} & \textbf{Tên sách} & 
@@ -152,18 +167,8 @@
                      & & & & \\ \hline
                      & & & & \\ \hline
                 \end{tabular}
-            \subsubsection{Biểu mẫu 4 và quy định 4}
-                \begin{tabular}{|c|c|c|c|c|}
-                    \hline
-                    \textbf{STT} & \textbf{Tên sách} & 
-                    \textbf{Thể loại} & \textbf{Tác giả} & 
-                    \textbf{Đơn giá} \\ \hline
-                     & & & & \\ \hline
-                     & & & & \\ \hline
-                     & & & & \\ \hline
-                \end{tabular}
-                \paragraph{QĐ4: Phần thêm quy định}
             \subsubsection{Biểu mẫu 5}
+                \paragraph{BM5: Lập báo cáo tháng}
                 \paragraph{Báo cáo doanh thu theo loại sách}
                 \paragraph{Tháng: }
                 \begin{tabular}{|c|c|c|c|c|}
@@ -176,21 +181,19 @@
                      & & & & \\ \hline
                 \end{tabular}
             \subsubsection{Quy định 6}
-                \paragraph{QĐ1: Thay đổi số lượng sách tối đa cho mỗi loại sách}
-                \paragraph{QĐ2: Thay đổi đơn giá các loại sách}
-                \paragraph{QĐ4: Thay đổi tỷ lệ phụ thu}
+                \paragraph{QĐ2: Thay đổi số lượng sách tối đa cho mỗi loại sách và đơn giá các loại sách}
+                \paragraph{QĐ3: Thay đổi tỷ lệ phụ thu}
         \subsection{Bảng trách nhiệm yêu cầu nghiệp vụ}
-            % Phần thêm/chỉnh sửa thông tin
             \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
                 \hline
                 \textbf{STT} & \textbf{Nghiệp vụ} & 
                 \textbf{Người dùng} & \textbf{Phần mềm} & 
                 \textbf{Ghi chú} \\ \hline
-    
-                1 & Lập phiếu nhập sách & Cung cấp thông tin theo BM1 & Kiểm tra QĐ1 và ghi nhận & Xóa, cập nhật \\ \hline
-                2 & Lập hóa đơn bán sách & Cung cấp thông tin theo BM2 & Kiểm tra QĐ2 và ghi nhận & Xóa, cập nhật \\ \hline
-                3 & Tra cứu sách & Cung cấp thông tin sách & Tìm và xuất theo BM3 & \\ \hline
-                4 & Lập phiếu thu tiền & Cho biết thông tin sách & Ghi nhận, xuất BM4 theo QĐ4 & \\ \hline
+
+                1 & Đăng nhập hệ thống & Cung cấp thông tin theo BM1 & Kiểm tra QĐ1 và ghi nhận & \\ \hline
+                2 & Lập phiếu nhập sách & Cung cấp thông tin theo BM2 & Kiểm tra QĐ1 và ghi nhận & Xóa, cập nhật \\ \hline
+                3 & Lập hóa đơn bán sách & Cung cấp thông tin theo BM3 & Kiểm tra QĐ3 và ghi nhận & Xóa, cập nhật \\ \hline
+                4 & Tra cứu sách & Cung cấp thông tin sách & Tìm và xuất theo BM4 & \\ \hline
                 5 & Lập báo cáo tháng & Cung cấp tháng cần lập báo cáo & Xuất báo cáo theo BM5 & \\ \hline
                 6 & Thay đổi qui định & Thay đổi các quy định theo QĐ6 & Cập nhật quy định & \\ \hline
             \end{tabularx}
@@ -200,7 +203,7 @@
                 \hline
                 \textbf{STT} & \textbf{Nghiệp vụ} & 
                 \textbf{Tham số cần thay đổi} & \textbf{Miền giá trị cần thay đổi} \\ \hline
-                1 & Thay đổi số lượng và đơn giá các loại sách & & Loại phòng, đơn giá \\ \hline
+                1 & Thay đổi số lượng và đơn giá các loại sách & & Loại sách, đơn giá \\ \hline
                 2 & Thay đổi số lượng sách tối đa cho mỗi loại sách & Số sách tối đa của mỗi loại & Loại sách \\ \hline
                 3 & Thay đổi tỷ lệ phụ thu & Tỷ lệ phụ thu & \\ \hline
             \end{tabularx}
@@ -210,7 +213,7 @@
                 \textbf{STT} & \textbf{Nghiệp vụ} & 
                 \textbf{Người dùng} & \textbf{Phần mềm} & 
                 \textbf{Ghi chú} \\ \hline
-                1 & Thay đổi số lượng và đơn giá các loại sách & Cho biết loại phòng và đơn giá tương ứng & Ghi nhận giá trị mới và cách thức kiểm tra & \\ \hline
+                1 & Thay đổi số lượng và đơn giá các loại sách & Cho biết loại sách và đơn giá tương ứng & Ghi nhận giá trị mới và cách thức kiểm tra & \\ \hline
                 2 & Thay đổi số lượng sách tối đa cho mỗi loại sách & Cho biết số lượng sách tói đa cho mỗi loại & Ghi nhận giá trị mới và cách thức kiểm tra & \\ \hline
                 3 & Thay đổi tỷ lệ phụ thu & Cho biết tỷ lệ phụ thu & Ghi nhận giá trị mới & \\ \hline
             \end{tabularx}
@@ -220,7 +223,7 @@
             \begin{tabular}{|c|l|l|l|c|}
                 \hline
                 \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Tốc độ xử lý} & \textbf{Dung lượng lưu trữ} & Ghi chú \\ \hline
+                \textbf{Tốc độ xử lý} & \textbf{Dung lượng lưu trữ} & \textbf{Ghi chú} \\ \hline
                 1 & Lập phiếu nhập sách & 3 phiếu / phút & & \\ \hline
                 2 & Lập hóa đơn bán sách & 3 hóa đơn / phút & & \\ \hline
                 3 & Tra cứu sách & Ngay lập tức & & \\ \hline
@@ -334,7 +337,7 @@
                 \hline
                 \textbf{STT} & \textbf{Yêu cầu} & 
                 \textbf{Mô tả chi tiết} & Ghi chú \\ \hline
-                1 & Dễ sủa lỗi & Xác định lỗi trung bình trong vòng 20 phút & Khi sửa lỗi một chức năng không ảnh hưởng đến các chức năng khác \\ \hline
+                1 & Dễ sửa lỗi & Xác định lỗi trung bình trong vòng 20 phút & Khi sửa lỗi một chức năng không ảnh hưởng đến các chức năng khác \\ \hline
                 2 & Dễ bảo trì & Thêm các chức năng mới nhanh & Không ảnh hưởng đến các chức năng đã có \\ \hline
                 3 & Tái sử dụng & Xây dựng phần mềm quản lý thư viện & Phần mềm mới phải cùng các yêu cầu \\ \hline
                 4 & Dễ mang chuyển & Đổi sang hệ quản trị cớ sở dữ liệu mới trong vòng 2 ngày & Phần mềm mới phải cùng các yêu cầu \\ \hline
@@ -342,13 +345,47 @@
         \subsection{Bảng trách nhiệm yêu cầu công nghệ}
 \chapter{Mô hình hóa}
     \section{Sơ đồ luồng dữ liệu cho yêu cầu lập phiếu nhập sách}
+    \paragraph{Mô tả luồng dữ liệu: }
+    \begin{itemize}
+        \item[] D1: 
+        \item[] D2: 
+        \item[] D3: 
+        \item[] D4: 
+        \item[] D5: 
+        \item[] D6: 
+    \end{itemize}
+    \paragraph{Thuật toán: }
     \section{Sơ đồ luồng dữ liệu cho yêu cầu lập hóa đơn bán sách}
     \section{Sơ đồ luồng dữ liệu cho yêu cầu tra cứu sách}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{traCuuSachDFD.drawio.png}
+        \label{fig:placeholder}
+    \end{figure}
+    \paragraph{\textbf{Mô tả luồng dữ liệu:}}
+    \begin{itemize}
+        \item[] D1: Thông tin sách cần tra cứu (tên, thể loại, tác giả)
+        \item[] D2: Không có
+        \item[] D3: Danh sách sách (tên, thể loại, tác giả)
+        \item[] D4: Không có
+        \item[] D5: Danh sách sách (tên, thể loại, tác giả) thỏa tiêu chuẩn tra cứu (D1)
+        \item[] D6: D5
+    \end{itemize}
+    \paragraph{\textbf{Thuật toán:}}
+    \begin{itemize}
+        \item[] B1: Nhận D1 từ người dùng
+        \item[] B2: Kết nối cơ sở dữ liệu
+        \item[] B3: Đọc D3 từ bộ nhớ phụ
+        \item[] B4: Xuất D5 ra máy in
+        \item[] B5: Trả D6 cho người dùng
+        \item[] B6: Đóng kết nối cơ sở dữ liệu
+        \item[] B7: Kết thúc
+    \end{itemize}
     \section{Sơ đồ luồng dữ liệu cho yêu cầu lập phiếu thu tiền}
     \section{Sơ đồ luồng dữ liệu cho yêu cầu lập báo cáo tháng}
 \chapter{Thiết kế dữ liệu}
-    Phần thêm/chỉnh sửa thông tin
+    ...
 \chapter{Thiết kế giao diện}
-    Phần thêm/chỉnh sửa thông tin
+    ...
 
 \end{document}
