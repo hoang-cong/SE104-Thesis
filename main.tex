@@ -102,20 +102,18 @@
 \pagebreak
 
 \chapter{Giới thiệu đề tài}
+    \section{Tổng quan đề tài}
+    Trong thời đại quản lý số, việc kiểm soát hàng hóa thủ công gây ra nhiều sai sót và thất thoát. Đề tài "Quản lý nhà sách" được thực hiện nhằm xây dựng một công cụ hỗ trợ nhân viên và quản lý nhà sách thực hiện các nghiệp vụ hằng ngày một cách chính xác, nhanh chóng. Hệ thống tập trung vào việc quản lý dữ liệu tập trung, đảm bảo các quy định về tồn kho và khuyến mãi được thực thi tự động.
+    \section{Phạm vi đề tài}
+        \subsection{Đối tượng nghiên cứu}
+        Tập trung vào quy trình nghiệp vụ nội bộ của một nhà sách truyền thống, bao gồm các hoạt động: nhập kho, lưu trữ, bán hàng và báo cáo.
+        \subsection{Giới hạn của hệ thống}
+        \begin{itemize}
+            \item \textbf{Về chức năng:} Hệ thống chỉ tập trung vào quản lý bán hàng tại quầy, không bao gồm quản lý lương nhân viên hay tích hợp thanh toán qua ví điện tử.
+            \item \textbf{Về công nghệ:} Ứng dụng được thiết kế chạy trên hệ điều hành Windows, cơ sở dữ liệu cài đặt tập trung tại máy chủ của cửa hàng.
+            \item \textbf{Về người dùng:} Hệ thống phân quyền cho 4 nhóm đối tượng chính: Quản trị, Quản lý, Nhân viên và Thủ kho.
+        \end{itemize}
 
-\section{Tổng quan đề tài}
-Trong thời đại quản lý số, việc kiểm soát hàng hóa thủ công gây ra nhiều sai sót và thất thoát. Đề tài "Hệ thống quản lý nhà sách" được thực hiện nhằm xây dựng một công cụ hỗ trợ nhân viên và quản lý nhà sách thực hiện các nghiệp vụ hằng ngày một cách chính xác, nhanh chóng. Hệ thống tập trung vào việc quản lý dữ liệu tập trung, đảm bảo các quy định về tồn kho và khuyến mãi được thực thi tự động.
-
-\section{Phạm vi đề tài}
-    \subsection{Đối tượng nghiên cứu}
-    Tập trung vào quy trình nghiệp vụ nội bộ của một nhà sách truyền thống, bao gồm các hoạt động: nhập kho, lưu trữ, bán hàng và báo cáo.
-
-    \subsection{Giới hạn của hệ thống}
-    \begin{itemize}
-        \item \textbf{Về chức năng:} Hệ thống chỉ tập trung vào quản lý bán hàng tại quầy, không bao gồm quản lý lương nhân viên hay tích hợp thanh toán qua ví điện tử.
-        \item \textbf{Về công nghệ:} Ứng dụng được thiết kế chạy trên hệ điều hành Windows, cơ sở dữ liệu cài đặt tập trung tại máy chủ của cửa hàng.
-        \item \textbf{Về người dùng:} Hệ thống phân quyền cho 4 nhóm đối tượng chính: Quản trị, Quản lý, Nhân viên và Thủ kho.
-    \end{itemize}
 \chapter{Hệ thống các yêu cầu phần mềm}
     \section{Yêu cầu nghiệp vụ}
         \subsection{Danh sách các yêu cầu nghiệp vụ}
@@ -137,16 +135,16 @@ Trong thời đại quản lý số, việc kiểm soát hàng hóa thủ công 
         \subsection{Danh sách các biểu mẫu và quy định}
             \subsubsection{Biểu mẫu 1 và quy định 1}
                 \paragraph{BM1: Quản lý đầu sách}
-                \begin{tabular}{|c|c|c|c|c|c|}
+                \begin{tabularx}{\textwidth}{|c|c|c|c|c|>{\RaggedRight}X|c|>{\RaggedRight}X|}
                     \hline
-                    \textbf{STT} & \textbf{Tên sách} & 
-                    \textbf{Thể loại} & \textbf{Tác giả} &
+                    \textbf{STT} & \textbf{Mã sách} & \textbf{Tên sách} & 
+                    \textbf{Thể loại} & \textbf{Tác giả} & \textbf{Nhà xuất bản} & 
                     \textbf{Đơn giá} & \textbf{Trạng thái} \\ \hline
-                    1 & & & & & \\ \hline
-                    2 & & & & & \\ \hline
-                    3 & & & & & \\ \hline
-                \end{tabular}
-                \paragraph{QĐ1: Trạng thái gồm: đang kinh doanh và ngừng kinh doanh.}
+                    1 & & & & & & & \\ \hline
+                    2 & & & & & & & \\ \hline
+                    3 & & & & & & & \\ \hline
+                \end{tabularx}
+                \paragraph{QĐ1: Trạng thái gồm: đang kinh doanh và ngừng kinh doanh. Không cho phép trùng tên sách cùng tác giả và nhà xuất bản.}
             \subsubsection{Biểu mẫu 2 và quy định 2}
                 \paragraph{BM2: Quản lý tồn kho }
                 \begin{tabular}{|c|c|c|c|c|c|}
@@ -158,7 +156,7 @@ Trong thời đại quản lý số, việc kiểm soát hàng hóa thủ công 
                     2 & & & & & \\ \hline
                     3 & & & & & \\ \hline
                 \end{tabular}
-                \paragraph{QĐ2: Số lượng tối đa là \textbf{500}, số lượng tối thiểu là \textbf{5}.}
+                \paragraph{QĐ2: Số lượng tối đa là \textbf{500}, số lượng tối thiểu là \textbf{5} cho mỗi loại.}
             \subsubsection{Biểu mẫu 3 và quy định 3}
                 \paragraph{BM3: Phiếu nhập sách}
                 \paragraph{Ngày nhập:}
@@ -171,70 +169,81 @@ Trong thời đại quản lý số, việc kiểm soát hàng hóa thủ công 
                     2 & & & & & & \\ \hline
                     3 & & & & & & \\ \hline
                 \end{tabular}
-                \paragraph{QĐ3: Số lượng nhập ít nhất lá \textbf{150}. Chỉ nhập các đầu sách có lượng tồn ít hơn \textbf{300}.}
+                \paragraph{QĐ3: Số lượng nhập ít nhất là \textbf{150}. Chỉ nhập các đầu sách có lượng tồn ít hơn \textbf{300}. Số lượng sau khi nhập $\le$ số lượng tối đa.}
             \subsubsection{Biểu mẫu 4}
                 \paragraph{BM4: Tra cứu sách}
-                \begin{tabular}{|c|c|c|c|c|c|c|}
-                        \hline
+                \begin{tabularx}{\textwidth}{|c|c|c|c|>{\RaggedRight}X|c|c|>{\RaggedRight}X|}
+                    \hline
                     \textbf{STT} & \textbf{Tên sách} & 
-                    \textbf{Thể loại} & \textbf{Tác giả} & 
+                    \textbf{Thể loại} & \textbf{Tác giả} & \textbf{Nhà xuất bản} & 
                     \textbf{Đơn giá} & \textbf{Số lượng} & \textbf{Trạng thái} \\ \hline
-                     & & & & & & \\ \hline
-                     & & & & & & \\ \hline
-                     & & & & & & \\ \hline
-                \end{tabular}
+                     & & & & & & & \\ \hline
+                     & & & & & & & \\ \hline
+                     & & & & & & & \\ \hline
+                \end{tabularx}
             \subsubsection{Biểu mẫu 5}
                 \paragraph{BM5: Tạo chương trình khuyến mãi}
-                \begin{tabular}{|c|l|l|c|c|c|}
+                \begin{tabularx}{\textwidth}{|c|c|>{\RaggedRight}X|c|c|>{\RaggedRight}X|>{\RaggedRight}X|}
                     \hline
-                    \textbf{STT} & \textbf{Mã KM} & \textbf{Tên chương trình} & \textbf{Ngày BĐ} & \textbf{Ngày KT} & \textbf{Giảm giá (\%)} \\ \hline
-                     & & & & & \\ \hline
-                     & & & & & \\ \hline
-                     & & & & & \\ \hline
-                \end{tabular}
-                \paragraph{QĐ5: Phần trăm giảm không quá 50\%.}
+                    \textbf{STT} & \textbf{Mã KM} & \textbf{Tên chương trình} & \textbf{Ngày BĐ} & \textbf{Ngày KT} & \textbf{Giảm giá (\%)} & \textbf{Đối tượng áp dụng} \\ \hline
+                     & & & & & & \\ \hline
+                     & & & & & & \\ \hline
+                     & & & & & & \\ \hline
+                \end{tabularx}
+                \paragraph{QĐ5: Phần trăm giảm không quá 40\%. Mỗi đầu sách chỉ được áp dụng một chương trình khuyến mãi có giá trị lớn nhất. Ngày BĐ $<$ Ngày KT.}
             \subsubsection{Biểu mẫu 6 và quy định 6}
                 \paragraph{BM6: Hóa đơn bán sách}
                 \paragraph{Ngày lập hóa đơn:}
-                \begin{tabular}{|c|l|c|c|c|c|c|}
-                        \hline
-                        \textbf{STT} & \textbf{Tên sách} & 
-                        \textbf{Thể loại} & \textbf{Tác giả} & \textbf{Số lượng} & \textbf{Đơn giá} & \textbf{Thành tiền} \\ \hline
-                    1 & & & & & & \\ \hline
-                    2 & & & & & & \\ \hline
-                    3 & & & & & & \\ \hline
-                    \multicolumn{6}{|r|}{\textbf{Tổng tiền thanh toán:}} & \\ \hline
-                \end{tabular}
-                \paragraph{QĐ6: Chỉ bán các đầu sách có lượng tồn sau khi bán ít nhất là \textbf{10}. Giá bán = giá gốc - phần trăm giảm giá (nếu có). Giá bán thấp nhất khi có chương trình giảm giá là 50\% giá gốc.}
+                \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
+                    \hline
+                    \textbf{STT} & \textbf{Mã hóa đơn} & \textbf{Tên sách} & 
+                    \textbf{Thể loại} & \textbf{Tác giả} & \textbf{Số lượng} & \textbf{Đơn giá} & \textbf{Giảm giá (\%)} & \textbf{Thành tiền} \\ \hline
+                    1 & & & & & & & & \\ \hline
+                    2 & & & & & & & & \\ \hline
+                    3 & & & & & & & & \\ \hline
+                    \multicolumn{8}{|r|}{\textbf{Tổng tiền thanh toán:}} & \\ \hline
+                \end{tabularx}
+                \paragraph{QĐ6: Chỉ bán các đầu sách có lượng tồn sau khi bán ít nhất là \textbf{5}. Giá bán = giá gốc - phần trăm giảm giá (nếu có).}
             \subsubsection{Biểu mẫu 7}
                 \paragraph{BM7: Quản lý người dùng}
                 \begin{tabular}{|c|l|l|l|c|}
                     \hline
-                    \textbf{STT} & \textbf{Họ tên} & \textbf{Email} & 
-                    \textbf{Mật khẩu} & \textbf{Chức vụ} \\ \hline
+                    \textbf{STT} & \textbf{Họ tên} & \textbf{Tên đăng nhập} & 
+                    \textbf{Mật khẩu} & \textbf{Vai trò} \\ \hline
                      & & & & \\ \hline
                      & & & & \\ \hline
                      & & & & \\ \hline
                 \end{tabular}
-                \paragraph{QĐ7: Chức vụ gồm: quản lý, nhân viên, thủ kho.}
+                \paragraph{QĐ7: Vai trò gồm: quản lý, nhân viên, thủ kho. Tên đăng nhập của mỗi tài khoản phải khác nhau. Độ dài mật khẩu tối thiểu là 6 ký tự.}
             \subsubsection{Biểu mẫu 8}
                 \paragraph{BM8: Lập báo cáo tháng}
                 \paragraph{Báo cáo doanh thu theo loại sách}
-                \paragraph{Tháng: }
-                \begin{tabular}{|c|c|c|c|c|}
+                \paragraph{Tháng:\dots\dots/\dots\dots\dots\dots}
+                \begin{tabular}{|c|c|c|c|}
                     \hline
-                    \textbf{STT} & \textbf{Thể loại} & \textbf{Số lượng} & \textbf{Đơn giá} & \textbf{Tổng doanh thu} \\ \hline
-                     & & & & \\ \hline
-                     & & & & \\ \hline
-                     & & & & \\ \hline
+                    \textbf{STT} & \textbf{Thể loại} & \textbf{Số lượng bán} & \textbf{Doanh thu} \\ \hline
+                     & & & \\ \hline
+                     & & & \\ \hline
+                     & & & \\ \hline
+                    \multicolumn{2}{|c|}{\textbf{Tổng cộng}} & & \\ \hline
+                \end{tabular}
+                \paragraph{Báo cáo tồn kho}
+                \begin{tabular}{|c|c|c|c|}
+                    \hline
+                    \textbf{STT} & \textbf{Tên sách} & \textbf{Thể loại} & \textbf{Số lượng} \\ \hline
+                     & & & \\ \hline
+                     & & & \\ \hline
+                     & & & \\ \hline
+                    \multicolumn{3}{|c|}{\textbf{Tổng cộng}} & \\ \hline
                 \end{tabular}
             \subsubsection{Quy định 9}
                 \paragraph{QĐ1: Thêm, xóa trạng thái kinh doanh.}
-                \paragraph{QĐ2: Thay đổi số lượng sách tối đa, tối thiểu.}
-                \paragraph{QĐ3: Thay đổi số lượng nhập tối thiểu, số lượng tồn tối đa.}
+                \paragraph{QĐ2: Thay đổi số lượng sách tối đa, tối thiểu cho mỗi loại sách.}
+                \paragraph{QĐ3: Thay đổi số lượng nhập tối thiểu, số lượng tồn tối đa cho mỗi loại sách.}
                 \paragraph{QĐ5: Thay đổi tỷ lệ giảm giá cho mỗi chương trình KM.}
-                \paragraph{QĐ6: Thay đổi số lượng tồn tối thiểu, giá bán tối thiểu khi có khuyến mãi.}
-                \paragraph{QĐ7: Thêm, xóa chức vụ.}
+                \paragraph{QĐ6: Thay đổi số lượng tồn tối thiểu.}
+                \paragraph{QĐ7: Thêm, xóa, chỉnh sửa vai trò.}
+            \pagebreak
         \subsection{Bảng trách nhiệm yêu cầu nghiệp vụ}
             \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
                 \hline
@@ -252,161 +261,146 @@ Trong thời đại quản lý số, việc kiểm soát hàng hóa thủ công 
                 8 & Lập báo cáo tháng & Cung cấp tháng cần lập báo cáo & Xuất báo cáo theo BM8 & \\ \hline
                 9 & Thay đổi quy định & Thay đổi các quy định theo QĐ9 & Cập nhật quy định & \\ \hline
             \end{tabularx}
-    \section{Yêu cầu tiến hóa}
-        \subsection{Danh sách các yêu cầu tiến hóa}
-            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
-                \hline
-                \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Tham số cần thay đổi} & \textbf{Miền giá trị cần thay đổi} \\ \hline
-                1 & Thay đổi đơn giá các loại sách & Đơn giá & $> 0$ \\ \hline
-                2 & Thay đổi quy định quản lý tồn kho & Số lượng sách tối thiểu, tối đa & $\ge 0$, số lượng tối thiểu $\le$ số lượng tối đa \\ \hline
-                3 & Thay đổi quy định lập phiếu nhập sách & Số lượng nhập tối thiểu, số lượng tồn tối đa & $\ge 0$ và $\le$ số lượng sách tối đa \\ \hline
-                4 & Thay đổi quy định khuyến mãi & Giá trị khuyến mãi (\%) & 0 - 100\% \\ \hline
-                5 & Thay đổi quy định lập hóa đơn bán sách & Số lượng tối thiểu sau khi bán, tỷ lệ đơn giá tối thiểu sau KM & số lượng tối thiểu $\ge 0$, $0 \le$ tỷ lệ đơn giá $\le 100\%$ \\ \hline
-            \end{tabularx}
-        \subsection{Bảng trách nhiệm yêu cầu tiến hóa}
-            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
-                \hline
-                \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Người dùng} & \textbf{Phần mềm} & 
-                \textbf{Ghi chú} \\ \hline
-                1 & Thay đổi đơn giá các loại sách & Cho biết loại sách và đơn giá tương ứng & Kiểm tra tính hợp lệ và cập nhật tham số hệ thống & \\ \hline
-                2 & Thay đổi quy định quản lý tồn kho & Cho biết số lượng sách tối thiểu, tói đa & Kiểm tra tính hợp lệ và cập nhật tham số hệ thống & \\ \hline
-                3 & Thay đổi quy định lập phiếu nhập sách & Cho biết số lượng nhập tối thiểu, số lượng tồn tối đa & Kiểm tra tính hợp lệ và cập nhật tham số hệ thống & \\ \hline
-                4 & Thay đổi quy định khuyến mãi & Cho biết giá trị khuyến mãi (\%) & Kiểm tra tính hợp lệ và cập nhật tham số hệ thống & \\ \hline
-                5 & Thay đổi quy định lập hóa đơn bán sách & Cho biết số lượng tối thiểu sau khi bán, tỷ lệ đơn giá tối thiểu sau KM & Kiểm tra tính hợp lệ và cập nhật tham số hệ thống & \\ \hline
-            \end{tabularx}
-    \section{Yêu cầu hiệu quả}
-        \subsection{Danh sách các yêu cầu hiệu quả}
-            \paragraph{Máy tính với CPU Dual-Core 2.5GHz, 8GB RAM, 1GB đĩa cứng}
-            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|l|l|c|}
-                \hline
-                \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Tốc độ xử lý} & \textbf{Dung lượng lưu trữ} & \textbf{Ghi chú} \\ \hline
-                1 & Quản lý đầu sách & Dưới 2 giây & Khoảng 10 000 đầu sách & \\ \hline
-                2 & Quản lý tồn kho & Ngay lập tức & Khoảng 10 000 đầu sách & \\ \hline
-                3 & Lập phiếu nhập sách & Dưới 5 giây & Khoảng 30 000 bản ghi / năm & \\ \hline
-                4 & Tra cứu sách & Ngay lập tức & Không đáng kể & \\ \hline
-                5 & Tạo chương trình khuyến mãi & Dưới 5 giây & Khoảng 100 chương trình & \\ \hline
-                6 & Lập hóa đơn bán sách & Dưới 2 giây & Khoảng 30 000 bản ghi / năm & \\ \hline
-                7 & Quản lý người dùng & Dưới 5 giây & Khoảng 300 tài khoản & \\ \hline
-                8 & Lập báo cáo tháng & Dưới 5 giây & Không đáng kể & \\ \hline
-                9 & Thay đổi quy định & Ngay lập tức & Không đáng kể & \\ \hline
-            \end{tabularx}
-        \subsection{Bảng trách nhiệm yêu cầu hiệu quả}
-            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
-                \hline
-                \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Người dùng} & \textbf{Phần mềm} & 
-                \textbf{Ghi chú} \\ \hline
-    
-                1 & Quản lý đầu sách & & Thực hiện theo đúng yêu cầu & \\ \hline
-                2 & Quản lý tồn kho & & Thực hiện theo đúng yêu cầu & \\ \hline
-                3 & Lập phiếu nhập sách & & Thực hiện theo đúng yêu cầu & \\ \hline
-                4 & Tra cứu sách & & Thực hiện theo đúng yêu cầu & \\ \hline
-                5 & Tạo chương trình khuyến mãi & & Thực hiện theo đúng yêu cầu & \\ \hline
-                6 & Lập hóa đơn bán sách & & Thực hiện theo đúng yêu cầu & \\ \hline
-                7 & Quản lý người dùng & & Thực hiện theo đúng yêu cầu & \\ \hline
-                8 & Lập báo cáo tháng & & Thực hiện theo đúng yêu cầu & \\ \hline
-                9 & Thay đổi quy định & & Thực hiện theo đúng yêu cầu & \\ \hline
-            \end{tabularx}
-    \section{Yêu cầu tiện dụng}
-        \subsection{Danh sách các yêu cầu tiện dụng}
-            \paragraph{Phần thêm thông tin}
-            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
-                \hline
-                \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Mức độ dễ học} & \textbf{Mức độ dễ sử dụng} & Ghi chú \\ \hline
-                1 & Quản lý đầu sách & 3 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 1\% & \\ \hline
-                2 & Quản lý tồn kho & 3 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 1\% & \\ \hline
-                3 & Lập phiếu nhập sách & 5 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 1\% & \\ \hline
-                4 & Tra cứu sách & Không cần hướng dẫn & Tỷ lệ tìm thấy đúng sách $> 95\%$ & \\ \hline
-                5 & Tạo chương trình khuyến mãi & 5 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 1\% & \\ \hline
-                6 & Lập hóa đơn bán sách & 5 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 0.5\% & \\ \hline
-                7 & Quản lý người dùng & 3 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 0.5\% & \\ \hline
-                8 & Lập báo cáo tháng & 7 phút hướng dẫn & Chính xác 100\% & \\ \hline
-                9 & Thay đổi quy định & 3 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 0.5\% & Xác nhận lại \\ \hline
-            \end{tabularx}
-        \subsection{Bảng trách nhiệm yêu cầu tiện dụng}
-            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|c|}
-                \hline
-                \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Người dùng} & \textbf{Phần mềm} & Ghi chú \\ \hline
-                1 & Quản lý đầu sách & Đọc hướng dẫn & Giao diện nhập liệu đơn giản, rõ ràng & \\ \hline
-                2 & Quản lý tồn kho & Đọc hướng dẫn & Thực hiện theo đúng yêu cầu & \\ \hline
-                3 & Lập phiếu nhập sách & Đọc hướng dẫn & Thực hiện theo đúng yêu cầu & \\ \hline
-                4 & Tra cứu sách & Cung cấp thông tin sách cần tìm & Tự động gợi ý thông tin liên quan & \\ \hline
-                5 & Tạo chương trình khuyến mãi & Đọc hướng dẫn & Thực hiện theo đúng yêu cầu & \\ \hline
-                6 & Lập hóa đơn bán sách & Đọc hướng dẫn & Thực hiện theo đúng yêu cầu & \\ \hline
-                7 & Quản lý người dùng & Đọc hướng dẫn & Thực hiện theo đúng yêu cầu & \\ \hline
-                8 & Lập báo cáo tháng & Đọc hướng dẫn & Thực hiện theo đúng yêu cầu & \\ \hline
-                9 & Thay đổi quy định & Đọc hướng dẫn & Hiển thị hộp thoại xác nhận (Confirm) & Xác nhận lại \\ \hline
-            \end{tabularx}
-    \section{Yêu cầu tương thích}
-        \subsection{Danh sách các yêu cầu tương thích}
-            \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|}
-                \hline
-                \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Đối tượng liên quan} & \textbf{Ghi chú} \\ \hline
-                1 & Nhập / xuất dữ liệu & Microsoft Excel & Độc lập phiên bản \\ \hline
-                2 & In hóa đơn & Máy in & Độc lập phiên bản \\ \hline
-                3 & Lưu trữ & SQL Server 2019+ & Hệ quản trị cơ sở dữ liệu tương thích \\ \hline
-            \end{tabularx}
-        \subsection{Bảng trách nhiệm yêu cầu tương thích}
-            \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|l|}
-                \hline
-                \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Người dùng} & \textbf{Phần mềm} & \textbf{Ghi chú} \\ \hline
-                1 & Nhập / xuất dữ liệu & Cho biết cấu trúc Excel và cấu trúc theo biểu mẫu & Hỗ trợ đọc/ghi định dạng tệp .xlsx & \\ \hline
-                2 & In hóa đơn & Chuẩn bị máy in đã được kết nối và phiếu thu tương ứng & Kết nối driver máy in và định dạng khổ giấy & \\ \hline
-                3 & Lưu trữ & Cần cài đặt và tạo kết nối cơ sở dữ liệu SQL & Đảm bảo tính toàn vẹn dữ liệu khi truy xuất & \\ \hline
-            \end{tabularx}
-    \section{Yêu cầu bảo mật}
-        \subsection{Danh sách các yêu cầu bảo mật}
-            \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
-                \hline
-                \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Quản trị hệ thống} & \textbf{Quản lý} & \textbf{Nhân viên} & \textbf{Thủ kho} \\ \hline
-                1 & Phân quyền & X & & & \\ \hline
-                2 & Quản lý đầu sách & & X & & \\ \hline
-                3 & Quản lý tồn kho & & & & X \\ \hline
-                4 & Lập phiếu nhập sách & & & & X \\ \hline
-                5 & Tra cứu sách & & X & X & X \\ \hline
-                6 & Tạo chương trình khuyến mãi & & X & & \\ \hline
-                7 & Lập hóa đơn bán sách & & & X & \\ \hline
-                8 & Quản lý người dùng & X & & & \\ \hline
-                9 & Xuất báo cáo tháng & & & X & \\ \hline
-                10 & Thay đổi quy định & & X & & \\ \hline
-            \end{tabularx}
-        \subsection{Bảng trách nhiệm yêu cầu bảo mật}
-            \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
-                \hline
-                \textbf{STT} & \textbf{Người dùng} & 
-                \textbf{Trách nhiệm} & \textbf{Phần mềm} & \textbf{Ghi chú} \\ \hline
-                1 & Quản trị & Cho biết các người dùng mới và quyền hạn tương ứng & Ghi nhận và thực hiện đúng & Tài khoản mặc định \\ \hline
-                2 & Quản lý & Cung cấp thông tin đăng nhập & Ghi nhận và thực hiện đúng & Có thể thay đổi mật khẩu \\ \hline
-                3 & Nhân viên & Cung cấp thông tin đăng nhập & Ghi nhận và thực hiện đúng & Có thể thay đổi mật khẩu \\ \hline
-                4 & Thủ kho & Cung cấp thông tin đăng nhập & Ghi nhận và thực hiện đúng & Có thể thay đổi mật khẩu \\ \hline
-            \end{tabularx}
-    \section{Yêu cầu an toàn}
-        \subsection{Danh sách các yêu cầu an toàn}
-            \begin{tabular}{|c|l|l|l|}
-                \hline
-                \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Đối tượng} & Ghi chú \\ \hline
-                1 & Phục hồi & Toàn bộ cơ sở dữ liệu & Sao lưu định kỳ \\ \hline
-                2 & Xóa & Các phiếu nhập sách & \\ \hline
-                3 & Không cho phép xóa & Các đầu sách trong kho & \\ \hline
-            \end{tabular}
-        \subsection{Bảng trách nhiệm yêu cầu an toàn}
-            \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|l|}
-                \hline
-                \textbf{STT} & \textbf{Nghiệp vụ} & 
-                \textbf{Người dùng} & \textbf{Phần mềm} & Ghi chú \\ \hline
-                1 & Phục hồi & Cho biết thời điểm cần phục hồi & Có hỗ trợ cho việc phục hồi và sao lưu & \\ \hline
-                2 & Xóa & Cho biết phiếu cần hủy & Hiển thị xác nhận và xóa & \\ \hline
-                3 & Không cho phép xóa & & Ngăn chặn xóa các đầu sách & \\ \hline
-            \end{tabularx}
+    \section{Yêu cầu chất lượng}
+        \subsection{Yêu cầu tiến hóa}
+            \subsubsection{Danh sách các yêu cầu tiến hóa}
+                \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
+                    \hline
+                    \textbf{STT} & \textbf{Nghiệp vụ} & 
+                    \textbf{Tham số cần thay đổi} & \textbf{Miền giá trị cần thay đổi} \\ \hline
+                    1 & Thay đổi đơn giá các loại sách & Đơn giá & $> 0$ \\ \hline
+                    2 & Thay đổi quy định quản lý tồn kho & Số lượng sách tối thiểu, tối đa của mỗi loại sách & $\ge 0$, số lượng tối thiểu $\le$ số lượng tối đa \\ \hline
+                    3 & Thay đổi quy định lập phiếu nhập sách & Số lượng nhập tối thiểu, số lượng tồn tối đa & $\ge 0$ và $\le$ số lượng sách tối đa cho mỗi loại \\ \hline
+                    4 & Thay đổi tỷ lệ khuyến mãi & Giá trị khuyến mãi tối đa (\%) & 0\% - 40\% \\ \hline
+                    5 & Thay đổi quy định lập hóa đơn bán sách & Số lượng tồn sau khi bán & số lượng tồn $\ge$ số lượng tối thiểu trong kho \\ \hline
+                \end{tabularx}
+            \subsubsection{Bảng trách nhiệm yêu cầu tiến hóa}
+                \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Nghiệp vụ} & 
+                    \textbf{Người dùng} & \textbf{Phần mềm} & 
+                    \textbf{Ghi chú} \\ \hline
+                    1 & Thay đổi quy định nghiệp vụ & Cung cấp các tham số mới theo QĐ9 & Kiểm tra tính hợp lệ và cập nhật tham số hệ thống & \\ \hline
+                    2 & Cập nhật danh mục sách & Cho biết đơn giá mới của sách & Ghi nhận giá trị mới và thay đổi cách thức tính toán & \\ \hline
+                \end{tabularx}
+        \subsection{Yêu cầu hiệu quả}
+            \subsubsection{Danh sách các yêu cầu hiệu quả}
+                \paragraph{Máy tính với CPU Intel Core i3 hoặc tương đương, 4GB RAM, 10GB đĩa cứng trống}
+                \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|l|l|c|}
+                    \hline
+                    \textbf{STT} & \textbf{Nghiệp vụ} & 
+                    \textbf{Tốc độ xử lý} & \textbf{Dung lượng lưu trữ} & \textbf{Ghi chú} \\ \hline
+                    1 & Quản lý đầu sách & Dưới 2 giây & Khoảng 10 000 đầu sách & \\ \hline
+                    2 & Quản lý tồn kho & Dưới 1 giây & Cập nhật số lượng tức thời & \\ \hline
+                    3 & Lập phiếu nhập sách & Dưới 5 giây & Khoảng 30 000 bản ghi/năm & \\ \hline
+                    4 & Tra cứu sách & Dưới 1 giây & Không đáng kể & \\ \hline
+                    5 & Tạo chương trình khuyến mãi & Dưới 5 giây & Khoảng 100 chương trình & \\ \hline
+                    6 & Lập hóa đơn bán sách & Dưới 2 giây & Khoảng 30 000 bản ghi/năm & \\ \hline
+                    7 & Quản lý người dùng & Dưới 5 giây & Khoảng 300 tài khoản & \\ \hline
+                    8 & Lập báo cáo tháng & Dưới 5 giây & Tổng hợp dữ liệu theo tháng & \\ \hline
+                    9 & Thay đổi quy định & Dưới 1 giây & Không đáng kể & \\ \hline
+                \end{tabularx}
+            \subsubsection{Bảng trách nhiệm yêu cầu hiệu quả}
+                \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Nghiệp vụ} & 
+                    \textbf{Người dùng} & \textbf{Phần mềm} & 
+                    \textbf{Ghi chú} \\ \hline
+                    1 & Thực hiện nghiệp vụ & Thao tác trên giao diện & Thực hiện đúng yêu cầu trong thời gian quy định & \\ \hline
+                    2 & Lập hóa đơn/Báo cáo & Chuẩn bị máy in đã kết nối & Thực hiện xử lý dữ liệu và xuất bản in & \\ \hline
+                \end{tabularx}
+        \subsection{Yêu cầu tiện dụng}
+            \subsubsection{Danh sách các yêu cầu tiện dụng}
+                \paragraph{Người dùng có trình độ tin học tương đương văn phòng cơ bản.}
+                \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Nghiệp vụ} & 
+                    \textbf{Mức độ dễ học} & \textbf{Mức độ dễ sử dụng} & Ghi chú \\ \hline
+                    1 & Quản lý đầu sách & 3 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 1\% & \\ \hline
+                    2 & Quản lý tồn kho & 3 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 1\% & \\ \hline
+                    3 & Lập phiếu nhập sách & 5 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 1\% & \\ \hline
+                    4 & Tra cứu sách & Không cần hướng dẫn & Tỷ lệ tìm thấy đúng sách $> 98\%$ & \\ \hline
+                    5 & Tạo chương trình khuyến mãi & 5 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 1\% & \\ \hline
+                    6 & Lập hóa đơn bán sách & 5 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 0.5\% & \\ \hline
+                    7 & Quản lý người dùng & 3 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 0.5\% & \\ \hline
+                    8 & Lập báo cáo tháng & 7 phút hướng dẫn & Chính xác 100\% & \\ \hline
+                    9 & Thay đổi quy định & 3 phút hướng dẫn & Tỷ lệ phạm lỗi trung bình là 0.5\% & Xác nhận lại \\ \hline
+                \end{tabularx}
+            \subsubsection{Bảng trách nhiệm yêu cầu tiện dụng}
+                \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
+                    \hline
+                    \textbf{STT} & \textbf{Nghiệp vụ} & 
+                    \textbf{Người dùng} & \textbf{Phần mềm} & Ghi chú \\ \hline
+                    1 & Nhập liệu & Đọc hướng dẫn & Giao diện nhập liệu đơn giản, rõ ràng & \\ \hline
+                    2 & Tra cứu sách & Cung cấp thông tin sách cần tìm & Hiển thị thông tin theo từ khóa & Không phân biệt chữ hoa / thường \\ \hline
+                    3 & Thay đổi quy định & Đọc hướng dẫn & Hiển thị hộp thoại xác nhận (Confirm) & \\ \hline
+                \end{tabularx}
+    \section{Yêu cầu hệ thống}
+        \subsection{Yêu cầu tương thích}
+            \subsubsection{Danh sách các yêu cầu tương thích}
+                \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|}
+                    \hline
+                    \textbf{STT} & \textbf{Nghiệp vụ} & 
+                    \textbf{Đối tượng liên quan} & \textbf{Ghi chú} \\ \hline
+                    1 & Nhập / xuất dữ liệu & Microsoft Excel & Độc lập phiên bản \\ \hline
+                    2 & In hóa đơn & Máy in & Độc lập phiên bản \\ \hline
+                    3 & Lưu trữ & SQL Server 2019+ & Hệ quản trị cơ sở dữ liệu tương thích \\ \hline
+                \end{tabularx}
+            \subsubsection{Bảng trách nhiệm yêu cầu tương thích}
+                \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Nghiệp vụ} & 
+                    \textbf{Người dùng} & \textbf{Phần mềm} & \textbf{Ghi chú} \\ \hline
+                    1 & Nhập / xuất dữ liệu & Cho biết cấu trúc Excel và cấu trúc theo biểu mẫu & Hỗ trợ đọc/ghi định dạng tệp .xlsx & \\ \hline
+                    2 & In hóa đơn & Chuẩn bị máy in đã được kết nối và phiếu thu tương ứng & Kết nối driver máy in và định dạng khổ giấy & \\ \hline
+                    3 & Lưu trữ & Cần cài đặt và tạo kết nối cơ sở dữ liệu SQL & Đảm bảo tính toàn vẹn dữ liệu khi truy xuất & \\ \hline
+                \end{tabularx}
+        \subsection{Yêu cầu bảo mật}
+            \subsubsection{Danh sách các yêu cầu bảo mật}
+                \begin{tabularx}{\textwidth}{|c|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
+                    \hline
+                    \textbf{STT} & \textbf{Nghiệp vụ} & 
+                    \textbf{Quản trị hệ thống} & \textbf{Quản lý} & \textbf{Nhân viên} & \textbf{Thủ kho} \\ \hline
+                    1 & Phân quyền & X & & & \\ \hline
+                    2 & Quản lý đầu sách & & X & & \\ \hline
+                    3 & Quản lý tồn kho & & & & X \\ \hline
+                    4 & Lập phiếu nhập sách & & & & X \\ \hline
+                    5 & Tra cứu sách & X & X & X & X \\ \hline
+                    6 & Tạo chương trình khuyến mãi & & X & & \\ \hline
+                    7 & Lập hóa đơn bán sách & & & X & \\ \hline
+                    8 & Quản lý người dùng & X & & & \\ \hline
+                    9 & Lập báo cáo tháng & & & X & X \\ \hline
+                    10 & Thay đổi quy định & & X & & \\ \hline
+                \end{tabularx}
+            \subsubsection{Bảng trách nhiệm yêu cầu bảo mật}
+                \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|>{\RaggedRight}X|}
+                    \hline
+                    \textbf{STT} & \textbf{Người dùng} & 
+                    \textbf{Trách nhiệm} & \textbf{Phần mềm} & \textbf{Ghi chú} \\ \hline
+                    1 & Quản trị & Cho biết các người dùng mới và quyền hạn tương ứng & Ghi nhận và thực hiện đúng & Tài khoản mặc định, mật khẩu được mã hóa \\ \hline
+                    2 & Quản lý & Cung cấp thông tin đăng nhập & Ghi nhận và thực hiện đúng & Có thể thay đổi mật khẩu, mật khẩu được mã hóa \\ \hline
+                    3 & Nhân viên & Cung cấp thông tin đăng nhập & Ghi nhận và thực hiện đúng & Có thể thay đổi mật khẩu, mật khẩu được mã hóa \\ \hline
+                    4 & Thủ kho & Cung cấp thông tin đăng nhập & Ghi nhận và thực hiện đúng & Có thể thay đổi mật khẩu, mật khẩu được mã hóa \\ \hline
+                \end{tabularx}
+        \subsection{Yêu cầu an toàn}
+            \subsubsection{Danh sách các yêu cầu an toàn}
+                \begin{tabular}{|c|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Nghiệp vụ} & 
+                    \textbf{Đối tượng} & Ghi chú \\ \hline
+                    1 & Phục hồi & Toàn bộ cơ sở dữ liệu & Sao lưu định kỳ \\ \hline
+                    2 & Xóa & Các phiếu nhập sách & \\ \hline
+                    3 & Không cho phép xóa & Các đầu sách trong kho & \\ \hline
+                \end{tabular}
+            \subsubsection{Bảng trách nhiệm yêu cầu an toàn}
+                \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Nghiệp vụ} & 
+                    \textbf{Người dùng} & \textbf{Phần mềm} & Ghi chú \\ \hline
+                    1 & Phục hồi & Cho biết thời điểm cần phục hồi & Có hỗ trợ cho việc phục hồi và sao lưu & \\ \hline
+                    2 & Xóa & Cho biết phiếu cần hủy & Hiển thị xác nhận và xóa & \\ \hline
+                    3 & Không cho phép xóa & & Ngăn chặn xóa các đầu sách & \\ \hline
+                \end{tabularx}
     \section{Yêu cầu công nghệ}
         \subsection{Danh sách các yêu cầu công nghệ}
             \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|>{\RaggedRight}X|}
@@ -416,8 +410,9 @@ Trong thời đại quản lý số, việc kiểm soát hàng hóa thủ công 
                 1 & Dễ bảo trì & Xác định lỗi trung bình trong vòng 20 phút & Khi sửa lỗi một chức năng không ảnh hưởng đến các chức năng khác \\ \hline
                 2 & Dễ nâng cấp & Thêm các chức năng mới mà không thay đổi cấu trúc phần mềm & Không ảnh hưởng đến các chức năng đã có \\ \hline
                 3 & Tái sử dụng & Các module như Quản lý người dùng, Quản lý đầu sách và tồn kho có thể dùng để xây dựng phần mềm quản lý thư viện & Phần mềm mới phải cùng các yêu cầu \\ \hline
-                4 & Dễ mang chuyển & Đổi sang hệ quản trị cớ sở dữ liệu mới trong vòng 2 ngày & Phần mềm mới phải cùng các yêu cầu \\ \hline
+                4 & Dễ mang chuyển & Đổi sang hệ quản trị cớ sở dữ liệu mới trong vòng 3 ngày & Phần mềm mới phải cùng các yêu cầu \\ \hline
             \end{tabularx}
+
 \chapter{Mô hình hóa}
     \section{Sơ đồ luồng dữ liệu cho yêu cầu lập phiếu nhập sách}
     \paragraph{\textbf{Mô tả luồng dữ liệu:}}
