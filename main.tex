@@ -103,10 +103,12 @@
 
 \chapter{Giới thiệu đề tài}
     \section{Tổng quan đề tài}
-    Trong thời đại quản lý số, việc kiểm soát hàng hóa thủ công gây ra nhiều sai sót và thất thoát. Đề tài "Quản lý nhà sách" được thực hiện nhằm xây dựng một công cụ hỗ trợ nhân viên và quản lý nhà sách thực hiện các nghiệp vụ hằng ngày một cách chính xác, nhanh chóng. Hệ thống tập trung vào việc quản lý dữ liệu tập trung, đảm bảo các quy định về tồn kho và khuyến mãi được thực thi tự động.
+    % Tìm hiểu hiện trạng kết hợp khảo sát.
+    \paragraph{Trong thời đại quản lý số, việc kiểm soát hàng hóa thủ công gây ra nhiều sai sót và thất thoát. Đề tài "Quản lý nhà sách" được thực hiện nhằm xây dựng một công cụ hỗ trợ nhân viên và quản lý nhà sách thực hiện các nghiệp vụ hằng ngày một cách chính xác, nhanh chóng. Hệ thống tập trung vào việc quản lý dữ liệu tập trung, đảm bảo các quy định về tồn kho và khuyến mãi được thực thi tự động.}
+    \paragraph{Các chức năng chính của phần mềm gồm có: Quản lý sách, quản lý kho, tra cứu sách, lập hóa đơn và lập báo cáo.}
     \section{Phạm vi đề tài}
         \subsection{Đối tượng nghiên cứu}
-        Tập trung vào quy trình nghiệp vụ nội bộ của một nhà sách truyền thống, bao gồm các hoạt động: nhập kho, lưu trữ, bán hàng và báo cáo.
+        \paragraph{Tập trung vào quy trình nghiệp vụ nội bộ của một nhà sách truyền thống, bao gồm các hoạt động: nhập kho, lưu trữ, bán hàng và báo cáo.}
         \subsection{Giới hạn của hệ thống}
         \begin{itemize}
             \item \textbf{Về chức năng:} Hệ thống chỉ tập trung vào quản lý bán hàng tại quầy, không bao gồm quản lý lương nhân viên hay tích hợp thanh toán qua ví điện tử.
@@ -365,10 +367,10 @@
                     2 & Quản lý đầu sách & & X & & \\ \hline
                     3 & Quản lý tồn kho & & & & X \\ \hline
                     4 & Lập phiếu nhập sách & & & & X \\ \hline
-                    5 & Tra cứu sách & X & X & X & X \\ \hline
+                    5 & Tra cứu sách & & X & X & X \\ \hline
                     6 & Tạo chương trình khuyến mãi & & X & & \\ \hline
                     7 & Lập hóa đơn bán sách & & & X & \\ \hline
-                    8 & Quản lý người dùng & X & & & \\ \hline
+                    8 & Quản lý người dùng & & X & & \\ \hline
                     9 & Lập báo cáo tháng & & & X & X \\ \hline
                     10 & Thay đổi quy định & & X & & \\ \hline
                 \end{tabularx}
@@ -443,10 +445,13 @@
         \item[] B6: Đóng kết nối cơ sở dữ liệu
         \item[] B7: Kết thúc
     \end{itemize}
-    \section{Sơ đồ luồng dữ liệu cho yêu cầu lập phiếu thu tiền}
     \section{Sơ đồ luồng dữ liệu cho yêu cầu lập báo cáo tháng}
 \chapter{Thiết kế dữ liệu}
-    ...
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{Book.drawio.png}
+        \label{fig:book}
+    \end{figure}
 \chapter{Thiết kế giao diện}
     ...
 
