@@ -414,45 +414,272 @@
                 3 & Tái sử dụng & Các module như Quản lý người dùng, Quản lý đầu sách và tồn kho có thể dùng để xây dựng phần mềm quản lý thư viện & Phần mềm mới phải cùng các yêu cầu \\ \hline
                 4 & Dễ mang chuyển & Đổi sang hệ quản trị cớ sở dữ liệu mới trong vòng 3 ngày & Phần mềm mới phải cùng các yêu cầu \\ \hline
             \end{tabularx}
-
+% \newpage
 \chapter{Mô hình hóa}
-    \section{Sơ đồ luồng dữ liệu cho yêu cầu lập phiếu nhập sách}
-    \paragraph{\textbf{Mô tả luồng dữ liệu:}}
-    \paragraph{\textbf{Thuật toán:}}
-    \section{Sơ đồ luồng dữ liệu cho yêu cầu lập hóa đơn bán sách}
-    \section{Sơ đồ luồng dữ liệu cho yêu cầu tra cứu sách}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\linewidth]{traCuuSachDFD.drawio.png}
-        \label{fig:placeholder}
-    \end{figure}
-    \paragraph{\textbf{Mô tả luồng dữ liệu:}}
-    \begin{itemize}
-        \item[] D1: Thông tin sách cần tra cứu (tên, thể loại, tác giả)
-        \item[] D2: Không có
-        \item[] D3: Danh sách sách (tên, thể loại, tác giả)
-        \item[] D4: Không có
-        \item[] D5: Danh sách sách (tên, thể loại, tác giả) thỏa tiêu chuẩn tra cứu (D1)
-        \item[] D6: D5
-    \end{itemize}
-    \paragraph{\textbf{Thuật toán:}}
-    \begin{itemize}
-        \item[] B1: Nhận D1 từ người dùng
-        \item[] B2: Kết nối cơ sở dữ liệu
-        \item[] B3: Đọc D3 từ bộ nhớ phụ
-        \item[] B4: Xuất D5 ra máy in
-        \item[] B5: Trả D6 cho người dùng
-        \item[] B6: Đóng kết nối cơ sở dữ liệu
-        \item[] B7: Kết thúc
-    \end{itemize}
-    \section{Sơ đồ luồng dữ liệu cho yêu cầu lập báo cáo tháng}
+    \section{Sơ đồ luồng dữ liệu}
+        \subsection{Sơ đồ luồng dữ liệu cho yêu cầu quản lý đầu sách}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{bm1___quan_ly_dau_sach.png}
+            \end{figure}
+            \paragraph{\textbf{Mô tả luồng dữ liệu:}}
+            \begin{itemize}
+                \item Người dùng gửi thông tin đầu sách cần thêm mới hoặc cập nhật vào tiến trình quản lý đầu sách.
+                \item Tiến trình đọc QĐ1 và dữ liệu đầu sách hiện có để kiểm tra ràng buộc không trùng tên sách cùng tác giả và nhà xuất bản.
+                \item Nếu hợp lệ, tiến trình ghi mới/cập nhật kho dữ liệu đầu sách; đồng thời ghi nhật ký thao tác.
+                \item Kết quả trả về màn hình gồm danh sách đầu sách mới nhất hoặc thông báo lỗi cụ thể.
+            \end{itemize}
+            \paragraph{\textbf{Thuật toán:}}
+            \begin{itemize}
+                \item[] B1: Nhân viên hoặc Quản lý chọn chức năng thêm mới/cập nhật đầu sách.
+                \item[] B2: Người dùng nhập tên sách, tác giả, nhà xuất bản, thể loại, năm xuất bản và đơn giá bán.
+                \item[] B3: Hệ thống kiểm tra dữ liệu bắt buộc và định dạng năm xuất bản, đơn giá.
+                \item[] B4: Hệ thống đọc QĐ1 và truy vấn D1 Đầu sách để kiểm tra cặp tên sách + tác giả + nhà xuất bản đã tồn tại hay chưa.
+                \item[] B5: Nếu vi phạm QĐ1, hệ thống dừng xử lý và trả thông báo trùng đầu sách.
+                \item[] B6: Nếu thêm mới, hệ thống sinh mã sách duy nhất; nếu cập nhật, hệ thống nạp bản ghi hiện có và thay đổi các trường được phép.
+                \item[] B7: Hệ thống lưu dữ liệu vào D1 Đầu sách và ghi D3 Nhật ký thao tác.
+                \item[] B8: Hệ thống hiển thị kết quả xử lý và danh sách đầu sách sau khi cập nhật.
+            \end{itemize}
+        \subsection{Sơ đồ luồng dữ liệu cho yêu cầu quản lý tồn kho}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{bm2___quan_ly_ton_kho.png}
+            \end{figure}
+            \paragraph{\textbf{Mô tả luồng dữ liệu:}}
+            \begin{itemize}
+                \item Thủ kho hoặc Quản lý gửi yêu cầu xem tồn kho theo thời gian thực.
+                \item Tiến trình đọc dữ liệu tồn kho, thông tin đầu sách và QĐ2 về mức tồn tối thiểu.
+                \item Các dòng có tồn kho dưới ngưỡng được đánh dấu để chuyển sang nghiệp vụ lập phiếu nhập.
+                \item Kết quả trả về phiếu tồn kho, tồn cuối kỳ và cảnh báo nhập thêm.
+            \end{itemize}
+            \paragraph{\textbf{Thuật toán:}}
+            \begin{itemize}
+                \item[] B1: Người dùng mở chức năng quản lý tồn kho và chọn bộ lọc theo đầu sách, thể loại hoặc kỳ báo cáo.
+                \item[] B2: Hệ thống đọc D1 Tồn kho và D2 Đầu sách để lấy tồn đầu kỳ, số lượng nhập, số lượng bán.
+                \item[] B3: Hệ thống tính tồn cuối kỳ = tồn đầu kỳ + số lượng nhập trong kỳ - số lượng bán trong kỳ.
+                \item[] B4: Hệ thống kiểm tra QĐ2: tồn kho không được âm và mức tồn tối thiểu mặc định là 300 hoặc giá trị đang lưu.
+                \item[] B5: Nếu tồn cuối kỳ nhỏ hơn mức tối thiểu, hệ thống gắn cờ cảnh báo và cho phép lập phiếu nhập.
+                \item[] B6: Hệ thống hiển thị phiếu tồn kho, danh sách cảnh báo và trạng thái từng đầu sách.
+            \end{itemize}
+        \subsection{Sơ đồ luồng dữ liệu cho yêu cầu lập phiếu nhập sách}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{bm3___lap_phieu_nhap_sach.png}
+            \end{figure}
+            \paragraph{\textbf{Mô tả luồng dữ liệu:}}
+            \begin{itemize}
+                \item Thủ kho nhập ngày nhập, nhà cung cấp, danh sách sách và số lượng nhập.
+                \item Tiến trình đọc danh mục đầu sách, tồn kho hiện tại và QĐ3 để kiểm tra điều kiện nhập.
+                \item Nếu phiếu nhập hợp lệ, dữ liệu phiếu nhập được ghi vào kho phiếu nhập và tồn kho được tăng tương ứng.
+                \item Hệ thống trả phiếu nhập đã xác nhận hoặc thông báo lỗi nếu số lượng nhập không đạt quy định.
+            \end{itemize}
+            \paragraph{\textbf{Thuật toán:}}
+            \begin{itemize}
+                \item[] B1: Thủ kho chọn chức năng lập phiếu nhập sách.
+                \item[] B2: Hệ thống tạo mã phiếu nhập tạm và yêu cầu nhập ngày nhập, nhà cung cấp, danh sách đầu sách, số lượng, đơn giá nhập.
+                \item[] B3: Hệ thống kiểm tra phiếu có ít nhất một dòng sách và mỗi đầu sách tồn tại trong D1 Đầu sách.
+                \item[] B4: Hệ thống đọc QĐ3 để lấy số lượng nhập tối thiểu của một lần nhập.
+                \item[] B5: Hệ thống đọc QĐ3 để lấy số lượng nhập tối thiểu của một lần nhập.
+                \item[] B6: Nếu có dòng vi phạm QĐ3, hệ thống trả lỗi tại đúng dòng và không ghi phiếu.
+                \item[] B7: Nếu hợp lệ, hệ thống lưu D4 Phiếu nhập và chi tiết phiếu nhập.
+                \item[] B8: Hệ thống cập nhật D2 Tồn kho bằng cách cộng số lượng nhập cho từng đầu sách.
+                \item[] B9: Hệ thống hiển thị phiếu nhập đã xác nhận và trạng thái tồn kho sau nhập.
+            \end{itemize}
+        \subsection{Sơ đồ luồng dữ liệu cho yêu cầu tra cứu sách}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{bm4___tra_cuu_sach.png}
+            \end{figure}
+            \paragraph{\textbf{Mô tả luồng dữ liệu:}}
+            \begin{itemize}
+                \item Người dùng nhập từ khóa hoặc bộ lọc tên sách, tác giả, thể loại, nhà xuất bản.
+                \item Tiến trình chuẩn hóa từ khóa rồi đọc đầu sách còn hiệu lực trong hệ thống.
+                \item Hệ thống bổ sung tồn kho hiện tại và khuyến mãi đang hiệu lực để trả kết quả đầy đủ.
+                \item Kết quả đi ra màn hình gồm danh sách sách, giá bán, tồn kho và thông tin chi tiết khi chọn một dòng.
+            \end{itemize}
+            \paragraph{\textbf{Thuật toán:}}
+            \begin{itemize}
+                \item[] B1: Người dùng nhập từ khóa tìm kiếm và chọn bộ lọc nếu có.
+                \item[] B2: Hệ thống chuẩn hóa từ khóa: bỏ phân biệt hoa/thường và dấu tiếng Việt.
+                \item[] B3: Hệ thống truy vấn D1 Đầu sách theo tên sách, tác giả, thể loại, nhà xuất bản và chỉ lấy đầu sách chưa bị xóa.
+                \item[] B4: Hệ thống đọc D2 Tồn kho để gắn số lượng tồn hiện tại cho từng kết quả.
+                \item[] B5: Hệ thống đọc D3 Chương trình khuyến mãi để xác định giá/giảm giá đang hiệu lực nếu có.
+                \item[] B6: Hệ thống sắp xếp, phân trang và trả danh sách kết quả.
+                \item[] B7: Khi người dùng chọn một đầu sách, hệ thống hiển thị ảnh bìa, mô tả, giá bán và tồn kho chi tiết.
+            \end{itemize}
+        \subsection{Sơ đồ luồng dữ liệu cho yêu cầu tạo chương trình khuyến mại}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{bm5___tao_chuong_trinh_khuyen_mai.png}
+            \end{figure}
+            \paragraph{\textbf{Mô tả luồng dữ liệu:}}
+            \begin{itemize}
+                \item Quản lý gửi yêu cầu thêm, sửa hoặc xóa chương trình khuyến mại.
+                \item Quản lý gửi yêu cầu thêm, sửa hoặc xóa chương trình khuyến mại.
+                \item Nếu hợp lệ, dữ liệu chương trình khuyến mại được lưu/cập nhật; chương trình hết hạn được vô hiệu hóa.
+                \item Kết quả trả về trạng thái cập nhật hoặc lỗi quy định.
+            \end{itemize}
+            \paragraph{\textbf{Thuật toán:}}
+            \begin{itemize}
+                \item[] B1: Quản lý mở chức năng chương trình khuyến mại và chọn thêm, sửa hoặc xóa.
+                \item[] B2: Hệ thống nhận tên chương trình, ngày bắt đầu, ngày kết thúc, tỉ lệ giảm giá và danh sách sách áp dụng.
+                \item[] B3: Hệ thống kiểm tra ngày kết thúc không được trước ngày bắt đầu.
+                \item[] B4: Hệ thống đọc QĐ5 để lấy tỉ lệ giảm giá tối đa.
+                \item[] B5: Nếu tỉ lệ giảm giá vượt mức tối đa, hệ thống trả lỗi và không lưu.
+                \item[] B6: Hệ thống kiểm tra mỗi đầu sách trong danh sách có bị trùng khuyến mại hiệu lực cùng thời điểm hay không.
+                \item[] B7: Nếu hợp lệ, hệ thống lưu mới/cập nhật/xóa hoặc chuyển trạng thái chương trình trong D1 Chương trình khuyến mại.
+                \item[] B8: Hệ thống tự động đánh dấu hết hiệu lực khi chương trình quá ngày kết thúc.
+                \item[] B9: Hệ thống hiển thị danh sách chương trình khuyến mại sau khi xử lý.
+            \end{itemize}
+        \subsection{Sơ đồ luồng dữ liệu cho yêu cầu lập hóa đơn bán sách}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{bm6___lap_hoa_don_ban_sach.png}
+            \end{figure}
+            \paragraph{\textbf{Mô tả luồng dữ liệu:}}
+            \begin{itemize}
+                \item Nhân viên nhập danh sách sách khách mua và số lượng từng đầu sách.
+                \item Tiến trình đọc giá bán, tồn kho, khuyến mãi đang hiệu lực và kiểm tra QĐ6.
+                \item Sau khi xác nhận, dữ liệu hóa đơn được ghi vào kho hóa đơn và tồn kho được giảm theo số lượng bán.
+                \item Hóa đơn đi ra thiết bị xuất hoặc file gồm thành tiền, giảm giá và tổng tiền.
+            \end{itemize}
+            \paragraph{\textbf{Thuật toán:}}
+            \begin{itemize}
+                \item[] B1: Nhân viên bán hàng tạo hóa đơn mới và chọn các đầu sách khách mua.
+                \item[] B2: Hệ thống kiểm tra QĐ6: hóa đơn phải có ít nhất một đầu sách.
+                \item[] B3: Hệ thống đọc D1 Đầu sách để lấy đơn giá bán và đọc D2 Tồn kho để lấy số lượng tồn hiện tại.
+                \item[] B4: Với từng dòng, hệ thống kiểm tra số lượng tồn có đủ để bán hay không.
+                \item[] B5: Nếu tồn kho không đủ, hệ thống dừng xử lý dòng đó và hiển thị thông báo không cho phép bán.
+                \item[] B6: Hệ thống đọc D3 Chương trình khuyến mại để tự động áp dụng giảm giá đang hiệu lực.
+                \item[] B7: Hệ thống tính thành tiền từng dòng = số lượng * đơn giá * (1 - giảm giá).
+                \item[] B8: Hệ thống tính tổng tiền hóa đơn và hiển thị cho nhân viên xác nhận.
+                \item[] B9: Sau khi xác nhận, hệ thống lưu D4 Hóa đơn bán sách và chi tiết hóa đơn.
+                \item[] B10: Hệ thống cập nhật D2 Tồn kho bằng cách trừ số lượng đã bán.
+                \item[] B11: Hệ thống in hoặc xuất hóa đơn ra file.
+            \end{itemize}
+        \subsection{Sơ đồ luồng dữ liệu cho yêu cầu quản lý người dùng}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{bm7___quan_ly_nguoi_dung.png}
+            \end{figure}
+            \paragraph{\textbf{Mô tả luồng dữ liệu:}}
+            \begin{itemize}
+                \item Quản lý gửi thông tin tài khoản hoặc yêu cầu thay đổi trạng thái người dùng.
+                \item Tiến trình đọc vai trò hợp lệ, kiểm tra QĐ7 trên tên đăng nhập, mật khẩu và tài khoản quản lý duy nhất.
+                \item Dữ liệu tài khoản hợp lệ được ghi vào kho người dùng, mật khẩu được lưu ở dạng băm.
+                \item Kết quả trả về màn hình quản lý kèm trạng thái xử lý.
+            \end{itemize}
+            \paragraph{\textbf{Thuật toán:}}
+            \begin{itemize}
+                \item[] B1: Quản lý chọn thêm, sửa, khóa hoặc xóa tài khoản người dùng.
+                \item[] B2: Hệ thống nhận họ tên, username, mật khẩu, vai trò và trạng thái tài khoản.
+                \item[] B3: Hệ thống kiểm tra vai trò có thuộc các vai trò hợp lệ: Quản lý, Nhân viên bán hàng, Thủ kho.
+                \item[] B4: Khi thêm hoặc sửa username, hệ thống kiểm tra QĐ7: username phải duy nhất trong D1 Người dùng.
+                \item[] B5: Khi tạo hoặc đổi mật khẩu, hệ thống kiểm tra QĐ7: mật khẩu tối thiểu 6 ký tự, sau đó băm mật khẩu trước khi lưu.
+                \item[] B6: Khi xóa tài khoản, hệ thống kiểm tra không được xóa tài khoản đang hoạt động hoặc tài khoản duy nhất có vai trò Quản lý.
+                \item[] B7: Nếu vi phạm quy định, hệ thống trả lỗi và không thay đổi dữ liệu.
+                \item[] B8: Nếu hợp lệ, hệ thống lưu thông tin tài khoản, vai trò, trạng thái vào D1 Người dùng.
+                \item[] B9: Hệ thống ghi D3 Nhật ký thao tác và trả kết quả xử lý.
+            \end{itemize}
+        \subsection{Sơ đồ luồng dữ liệu cho yêu cầu lập báo cáo tháng}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{bm8___lap_bao_cao_thang.png}
+            \end{figure}
+            \paragraph{\textbf{Mô tả luồng dữ liệu:}}
+            \begin{itemize}
+                \item Quản lý nhập tháng/năm cần lập báo cáo.
+                \item Tiến trình đọc hóa đơn, chi tiết hóa đơn, tồn kho và thông tin đầu sách trong kỳ.
+                \item Dữ liệu được tổng hợp thành doanh thu, số hóa đơn, số sách bán, top 10 sách bán chạy và tồn kho cuối tháng.
+                \item Báo cáo đi ra màn hình hoặc được xuất thành file PDF/Excel.
+            \end{itemize}
+            \paragraph{\textbf{Thuật toán:}}
+            \begin{itemize}
+                \item[] B1: Quản lý chọn chức năng lập báo cáo tháng và nhập tháng/năm báo cáo.
+                \item[] B2: Hệ thống kiểm tra tháng/năm hợp lệ và không vượt quá phạm vi dữ liệu.
+                \item[] B3: Hệ thống truy vấn D1 Hóa đơn bán sách theo khoảng ngày đầu tháng đến cuối tháng.
+                \item[] B4: Hệ thống đọc D2 Chi tiết hóa đơn để tính tổng số sách bán và doanh thu.
+                \item[] B5: Hệ thống nhóm dữ liệu theo đầu sách để xác định top 10 sách bán chạy.
+                \item[] B6: Hệ thống đọc D3 Tồn kho và D4 Đầu sách để lập tình trạng tồn kho cuối tháng.
+                \item[] B7: Hệ thống tổng hợp các chỉ tiêu: tổng doanh thu, tổng số hóa đơn, tổng số sách đã bán, top sách và tồn kho.
+                \item[] B8: Hệ thống hiển thị báo cáo và cho phép xuất PDF hoặc Excel.
+            \end{itemize}
+        \subsection{Sơ đồ luồng dữ liệu cho yêu cầu lập báo cáo tháng}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{qd9___thay_doi_quy_dinh.png}
+            \end{figure}
+            \paragraph{\textbf{Mô tả luồng dữ liệu:}}
+            \begin{itemize}
+                \item Quản lý nhập các thông số quy định mới như tồn tối thiểu, nhập tối thiểu và giảm giá tối đa.
+                \item Tiến trình đọc giá trị cũ, kiểm tra miền giá trị hợp lệ rồi ghi giá trị mới vào kho quy định.
+                \item Mọi thay đổi được ghi vào lịch sử với người thay đổi, thời điểm, giá trị cũ và giá trị mới.
+                \item Sau khi lưu, các phân hệ nghiệp vụ đọc quy định mới và áp dụng ngay.
+            \end{itemize}
+            \paragraph{\textbf{Thuật toán:}}
+            \begin{itemize}
+                \item[] B1: Quản lý mở màn hình thay đổi quy định.
+                \item[] B2: Hệ thống đọc D1 Quy định nghiệp vụ và hiển thị giá trị hiện tại.
+                \item[] B3: Quản lý nhập giá trị mới cho số lượng tồn tối thiểu, số lượng nhập tối thiểu hoặc tỉ lệ giảm giá tối đa.
+                \item[] B4: Hệ thống kiểm tra kiểu dữ liệu, miền giá trị và tính hợp lệ của từng thông số.
+                \item[] B5: Hệ thống lưu lại giá trị cũ trước khi cập nhật.
+                \item[] B6: Hệ thống ghi giá trị mới vào D1 Quy định nghiệp vụ và cho hiệu lực ngay sau khi lưu.
+                \item[] B7: Hệ thống ghi D2 Lịch sử thay đổi quy định gồm người thay đổi, thời điểm, giá trị cũ và giá trị mới.
+                \item[] B8: Hệ thống trả thông báo thành công; các nghiệp vụ BM1, BM2, BM3, BM5, BM6, BM7 sẽ đọc quy định mới khi xử lý.
+            \end{itemize}
+    \section{Sơ đồ Use case}
+        \subsection{Sơ đồ use case tổng quát}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{usercase tong quat.png}
+            \end{figure}
+        \subsection{Sơ đồ use case cho yêu cầu quản lý đầu sách}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{quanlydausach.png}
+            \end{figure}
+        \subsection{Sơ đồ use case cho yêu cầu quản lý tồn kho}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{quanlytonkho.png}
+            \end{figure}
+        \subsection{Sơ đồ use case cho yêu cầu lập phiều nhập sách}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{phieunhapsach.png}
+            \end{figure}
+        \subsection{Sơ đồ use case cho yêu cầu tra cứu sách}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{tracuusach.png}
+            \end{figure}
+        \subsection{Sơ đồ use case cho yêu cầu tạo chương trình khuyến mại}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{taoctkm.png}
+            \end{figure}
+        \subsection{Sơ đồ use case cho yêu cầu lập hóa đơn bán sách}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{laphoadonbansach.png}
+            \end{figure}
+        \subsection{Sơ đồ use case cho yêu cầu quản lý người dùng}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{quanlynguoidung.png}
+            \end{figure}
+        \subsection{Sơ đồ use case cho yêu cầu lập báo cáo tháng}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{dap bao cao thang.png}
+            \end{figure}
+        \subsection{Sơ đồ use case cho yêu cầu thay đổi quy định}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{thaydoiquydinh.png}
+            \end{figure}
 \chapter{Thiết kế dữ liệu}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.3\linewidth]{Book.drawio.png}
-        \label{fig:book}
-    \end{figure}
+    
 \chapter{Thiết kế giao diện}
-    ...
 
 \end{document}
