@@ -24,9 +24,3 @@ Báo cáo tập trung phân tích và thiết kế hệ thống quản lý nhà 
 - Sơ đồ Use Case / DFD
 - Thiết kế hệ thống
 - Kết luận
-
-## Cách xem báo cáo
-
-Có thể xem trực tiếp file PDF:
-
-[main.pdf](main.pdf)
