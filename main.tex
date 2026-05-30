@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{tabularx}
 \usepackage{ragged2e}
+\usepackage[T5]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[vietnamese]{babel}
 \usepackage{titlesec}
@@ -67,36 +68,48 @@
 
 \begin{document}
 
+\hypersetup{pageanchor=false}
 \begin{titlepage}
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
     \centering
 
-    \Large
-    TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN \\
-    \textbf{LỚP SE104.Q28} \\
-    \date{2026}
-    
-    \vspace{0.8cm}
+    \textsc{\LARGE Đại học Quốc gia TP. Hồ Chí Minh}\\[0.25cm]
+    \textsc{\LARGE Trường Đại học Công nghệ Thông tin}\\[1.2cm]
 
-    % phần thêm logo trường
-    % \includegraphics[width=0.4\textwidth]{university_logo.png}
+    \IfFileExists{logo-uit.png}{
+        \includegraphics[width=0.28\textwidth]{logo-uit.png}\\[1.2cm]
+    }{
+        \fbox{\parbox[c][3cm][c]{3cm}{\centering LOGO UIT}}\\[1.2cm]
+    }
+
+    \textsc{\Large Môn học: Nhập môn Công nghệ phần mềm}\\[0.4cm]
+    \textsc{\large Lớp: SE104.Q28}\\[1cm]
+
+    \HRule \\[0.4cm]
+    {\Large\bfseries Báo cáo đồ án}\\[0.25cm]
+    {\huge\bfseries Đề tài Quản lý nhà sách}\\[0.4cm]
+    \HRule \\[1.5cm]
+
+    \begin{minipage}{0.5\textwidth}
+        \begin{flushleft} \large
+            \emph{Nhóm sinh viên thực hiện:}\\
+            Nguyễn Công Hoàng -- 24520550\\
+            Đỗ Gia Huy -- 24520657\\
+            Nguyễn Ngọc Hưng -- 24520610
+        \end{flushleft}
+    \end{minipage}
+    ~
+    \begin{minipage}{0.4\textwidth}
+        \begin{flushright} \large
+            \emph{Giảng viên hướng dẫn:}\\
+            Đỗ Văn Tiến
+        \end{flushright}
+    \end{minipage}
 
     \vfill
-    \vspace*{1cm}
-    \huge
-    \textbf{Báo cáo đồ án}
-    
-    \vspace{0.5cm}
-    \Huge
-    \textbf{Đề tài Quản lý nhà sách}
-    
-    \vfill
-    \vspace{1.5cm}
-    \textbf{Nhóm sinh viên thực hiện} \\
-    Nguyễn Công Hoàng - 24520550 \\
-    Đỗ Gia Huy - 24520657 \\
-    Nguyễn Ngọc Hưng - 24520610 \\
-
+    {\large TP. Hồ Chí Minh, 2026}
 \end{titlepage}
+\hypersetup{pageanchor=true}
 
 \tableofcontents
 \pagebreak
