@@ -3,7 +3,6 @@
 \usepackage{graphicx}
 \usepackage{tabularx}
 \usepackage{ragged2e}
-\usepackage[T5]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[vietnamese]{babel}
 \usepackage{titlesec}
@@ -68,22 +67,17 @@
 
 \begin{document}
 
-\hypersetup{pageanchor=false}
 \begin{titlepage}
     \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
     \centering
 
-    \textsc{\LARGE Đại học Quốc gia TP. Hồ Chí Minh}\\[0.25cm]
-    \textsc{\LARGE Trường Đại học Công nghệ Thông tin}\\[1.2cm]
+    \LARGE Đại học Quốc gia TP. Hồ Chí Minh\\[0.25cm]
+    \LARGE Trường Đại học Công nghệ Thông tin\\[1.2cm]
 
-    \IfFileExists{logo-uit.png}{
-        \includegraphics[width=0.28\textwidth]{logo-uit.png}\\[1.2cm]
-    }{
-        \fbox{\parbox[c][3cm][c]{3cm}{\centering LOGO UIT}}\\[1.2cm]
-    }
+    \includegraphics[width=0.28\linewidth]{logo-uit.png}\\[1.2cm]
 
-    \textsc{\Large Môn học: Nhập môn Công nghệ phần mềm}\\[0.4cm]
-    \textsc{\large Lớp: SE104.Q28}\\[1cm]
+    \Large Môn học: Nhập môn Công nghệ phần mềm\\[0.4cm]
+    \large Lớp: SE104.Q28\\[1cm]
 
     \HRule \\[0.4cm]
     {\Large\bfseries Báo cáo đồ án}\\[0.25cm]
@@ -109,7 +103,6 @@
     \vfill
     {\large TP. Hồ Chí Minh, 2026}
 \end{titlepage}
-\hypersetup{pageanchor=true}
 
 \tableofcontents
 \pagebreak
@@ -384,7 +377,7 @@
                     6 & Tạo chương trình khuyến mãi & & X & & \\ \hline
                     7 & Lập hóa đơn bán sách & & & X & \\ \hline
                     8 & Quản lý người dùng & & X & & \\ \hline
-                    9 & Lập báo cáo tháng & & & X & X \\ \hline
+                    9 & Lập báo cáo tháng & & X & & \\ \hline
                     10 & Thay đổi quy định & & X & & \\ \hline
                 \end{tabularx}
             \subsubsection{Bảng trách nhiệm yêu cầu bảo mật}
@@ -520,29 +513,29 @@
                 \item[] B6: Hệ thống sắp xếp, phân trang và trả danh sách kết quả.
                 \item[] B7: Khi người dùng chọn một đầu sách, hệ thống hiển thị ảnh bìa, mô tả, giá bán và tồn kho chi tiết.
             \end{itemize}
-        \subsection{Sơ đồ luồng dữ liệu cho yêu cầu tạo chương trình khuyến mại}
+        \subsection{Sơ đồ luồng dữ liệu cho yêu cầu tạo chương trình khuyến mãi}
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=1\linewidth]{bm5___tao_chuong_trinh_khuyen_mai.png}
             \end{figure}
             \paragraph{\textbf{Mô tả luồng dữ liệu:}}
             \begin{itemize}
-                \item Quản lý gửi yêu cầu thêm, sửa hoặc xóa chương trình khuyến mại.
-                \item Quản lý gửi yêu cầu thêm, sửa hoặc xóa chương trình khuyến mại.
-                \item Nếu hợp lệ, dữ liệu chương trình khuyến mại được lưu/cập nhật; chương trình hết hạn được vô hiệu hóa.
+                \item Quản lý gửi yêu cầu thêm, sửa hoặc xóa chương trình khuyến mãi.
+                \item Quản lý gửi yêu cầu thêm, sửa hoặc xóa chương trình khuyến mãi.
+                \item Nếu hợp lệ, dữ liệu chương trình khuyến mãi được lưu/cập nhật; chương trình hết hạn được vô hiệu hóa.
                 \item Kết quả trả về trạng thái cập nhật hoặc lỗi quy định.
             \end{itemize}
             \paragraph{\textbf{Thuật toán:}}
             \begin{itemize}
-                \item[] B1: Quản lý mở chức năng chương trình khuyến mại và chọn thêm, sửa hoặc xóa.
+                \item[] B1: Quản lý mở chức năng chương trình khuyến mãi và chọn thêm, sửa hoặc xóa.
                 \item[] B2: Hệ thống nhận tên chương trình, ngày bắt đầu, ngày kết thúc, tỉ lệ giảm giá và danh sách sách áp dụng.
                 \item[] B3: Hệ thống kiểm tra ngày kết thúc không được trước ngày bắt đầu.
                 \item[] B4: Hệ thống đọc QĐ5 để lấy tỉ lệ giảm giá tối đa.
                 \item[] B5: Nếu tỉ lệ giảm giá vượt mức tối đa, hệ thống trả lỗi và không lưu.
-                \item[] B6: Hệ thống kiểm tra mỗi đầu sách trong danh sách có bị trùng khuyến mại hiệu lực cùng thời điểm hay không.
-                \item[] B7: Nếu hợp lệ, hệ thống lưu mới/cập nhật/xóa hoặc chuyển trạng thái chương trình trong D1 Chương trình khuyến mại.
+                \item[] B6: Hệ thống kiểm tra mỗi đầu sách trong danh sách có bị trùng khuyến mãi hiệu lực cùng thời điểm hay không.
+                \item[] B7: Nếu hợp lệ, hệ thống lưu mới/cập nhật/xóa hoặc chuyển trạng thái chương trình trong D1 Chương trình khuyến mãi.
                 \item[] B8: Hệ thống tự động đánh dấu hết hiệu lực khi chương trình quá ngày kết thúc.
-                \item[] B9: Hệ thống hiển thị danh sách chương trình khuyến mại sau khi xử lý.
+                \item[] B9: Hệ thống hiển thị danh sách chương trình khuyến mãi sau khi xử lý.
             \end{itemize}
         \subsection{Sơ đồ luồng dữ liệu cho yêu cầu lập hóa đơn bán sách}
             \begin{figure}[H]
@@ -563,7 +556,7 @@
                 \item[] B3: Hệ thống đọc D1 Đầu sách để lấy đơn giá bán và đọc D2 Tồn kho để lấy số lượng tồn hiện tại.
                 \item[] B4: Với từng dòng, hệ thống kiểm tra số lượng tồn có đủ để bán hay không.
                 \item[] B5: Nếu tồn kho không đủ, hệ thống dừng xử lý dòng đó và hiển thị thông báo không cho phép bán.
-                \item[] B6: Hệ thống đọc D3 Chương trình khuyến mại để tự động áp dụng giảm giá đang hiệu lực.
+                \item[] B6: Hệ thống đọc D3 Chương trình khuyến mãi để tự động áp dụng giảm giá đang hiệu lực.
                 \item[] B7: Hệ thống tính thành tiền từng dòng = số lượng * đơn giá * (1 - giảm giá).
                 \item[] B8: Hệ thống tính tổng tiền hóa đơn và hiển thị cho nhân viên xác nhận.
                 \item[] B9: Sau khi xác nhận, hệ thống lưu D4 Hóa đơn bán sách và chi tiết hóa đơn.
@@ -644,7 +637,7 @@
         \subsection{Sơ đồ use case tổng quát}
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=1\linewidth]{usercase tong quat.png}
+                \includegraphics[width=1\linewidth]{Use case general.drawio.png}
             \end{figure}
         \subsection{Sơ đồ use case cho yêu cầu quản lý đầu sách}
             \begin{figure}[H]
@@ -666,7 +659,7 @@
                 \centering
                 \includegraphics[width=1\linewidth]{tracuusach.png}
             \end{figure}
-        \subsection{Sơ đồ use case cho yêu cầu tạo chương trình khuyến mại}
+        \subsection{Sơ đồ use case cho yêu cầu tạo chương trình khuyến mãi}
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=1\linewidth]{taoctkm.png}
@@ -691,8 +684,330 @@
                 \centering
                 \includegraphics[width=1\linewidth]{thaydoiquydinh.png}
             \end{figure}
+\chapter{Thiết kế hệ thống}
+    \section{Kiến trúc hệ thống}
+        \paragraph{Ứng dụng kiến trúc MVVM để thiết kế phần mềm quản lý nhà sách, kiến trúc này bao gồm 3 thành phần: }
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{mvvm.png}
+        \end{figure}
+        \begin{itemize}
+            \item View: phần giao diện của ứng dụng để hiển thị dữ liệu và nhận tương tác của người dùng.
+            \item Model: là các đối tượng giúp truy xuất và thao tác trên database. 
+            \item View Model: lớp trung gian giữa View và Model.
+        \end{itemize}
+    \section{Mô tả các thành phần trong hệ thống}
+        \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|}
+            \hline
+            \textbf{STT} & \textbf{Thành phần} & \textbf{Thành phần chi tiết} \\ \hline
+            1 & Data & Chứa các class tạo đối tượng từ database \\ \hline
+            2 & UC (User Control) & Chức các file xaml cho custom control \\ \hline
+            3 & ResourceDictionary & Chứa các config file cho các thành phần giao diện và ngôn ngữ \\ \hline
+            4 & View & Chức các file xaml cho giao diện \\ \hline
+            5 & ViewModel & Chứa các file cs cho data binding, command và xử lý logic \\ \hline
+        \end{tabularx}
 \chapter{Thiết kế dữ liệu}
-    
-\chapter{Thiết kế giao diện}
+    \section{Sơ đồ ERD tổng thể}
+        \begin{figure} [H]
+            \centering
+            \includegraphics[width=1\linewidth]{General.drawio.png}
+        \end{figure}
 
+        \paragraph{Danh sách các bảng trong sơ đồ: }
+        \begin{tabularx}{\textwidth}{|c|l|>{\RaggedRight}X|}
+            \hline
+            \textbf{STT} & \textbf{Tên bảng} & \textbf{Mô tả} \\ \hline
+            1 & Book & Lưu trữ thông tin chi tiết của sách \\ \hline
+            2 & Author & Lưu trữ danh sách tác giả \\ \hline
+            3 & BookAuthor & Lưu trữ danh sách tác giả ứng với mỗi quyển sách \\ \hline
+            4 & Genre & Lưu trữ danh sách thể loại sách \\ \hline
+            5 & BookGenre & Lưu trữ danh sách thể loại ứng với mỗi quyển sách \\ \hline
+            6 & Publisher & Lưu trữ danh sách nhà xuất bản \\ \hline
+            7 & Promotion & Lưu trữ thông tin chương trình khuyến mãi \\ \hline
+            8 & PromotionTarget & Lưu trữ danh sách sách được áp dụng khuyến mãi \\ \hline
+            9 & User & Lưu trữ thông tin tài khoản người dùng \\ \hline
+            10 & Invoice & Lưu trữ danh sách hóa đơn \\ \hline
+            11 & InvoiceDetail & Lưu trữ thông tin chi tiết của mỗi hóa đơn \\ \hline
+            12 & Import & Lưu trữ danh sách phiếu nhập kho \\ \hline
+            13 & ImportDetail & Lưu trữ thông tin chi tiết của mỗi phiếu nhập
+        \end{tabularx}
+    \section{Thiết kế dữ liệu cho bảng sách}
+        \subsection{Sơ đồ ERD}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{Book.drawio.png}
+            \end{figure}
+
+        \subsection{Mô tả bảng dữ liệu}
+            \subsubsection{Bảng sách}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & BookId & int & Khóa chính & Mã sách \\ \hline
+                    2 & ISBN & string & & Mã số tiêu chuẩn quốc tế \\ \hline
+                    3 & PublisherId & int & Khóa ngoại & Mã NXB \\ \hline
+                    4 & Price & double & & Đơn giá \\ \hline
+                    5 & Stock & int & & Số lượng \\ \hline
+                    6 & BookStatusId & int & Khóa ngoại & Mã trạng thái \\ \hline
+                \end{tabular}
+            \subsubsection{Bảng trạng thái sách}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & BookStatusId & int & Khóa chính & Mã trạng thái \\ \hline
+                    2 & BookStatusName & string & & Tên trạng thái \\ \hline
+                \end{tabular}
+            \subsubsection{Bảng tác giả}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & AuthorId & int & Khóa chính & Mã tác giả \\ \hline
+                    2 & AuthorName & string & & Tên tác giả \\ \hline
+                \end{tabular}
+            \subsubsection{Bảng liên kết sách - tác giả}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & AuthorId & int & Khóa ngoại & Mã tác giả \\ \hline
+                    2 & BookId & int & Khóa ngoại & Mã sách \\ \hline
+                \end{tabular}
+            \subsubsection{Bảng thể loại}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & GenreId & int & Khóa chính & Mã thể loại \\ \hline
+                    2 & GenreName & string & & Tên thể loại \\ \hline
+                \end{tabular}
+            \subsubsection{Bảng liên kết sách - thể loại}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & GenreId & int & Khóa chính & Mã thể loại \\ \hline
+                    2 & GenreName & string & & Tên thể loại \\ \hline
+                \end{tabular}
+            \subsubsection{Bảng nhà xuất bản}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & PublisherId & int & Khóa chính & Mã nhà xuất bản \\ \hline
+                    2 & PublisherName & string & & Tên nhà xuất bản \\ \hline
+                \end{tabular}
+    \section{Thiết kế dữ liệu cho bảng người dùng}
+        \subsection{Sơ đồ ERD}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.75\linewidth]{User.drawio.png}
+            \end{figure}
+        \subsection{Mô tả bảng dữ liệu}
+            \subsubsection{Bảng người dùng}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & UserId & int & Khóa chính & Mã người dùng \\ \hline
+                    2 & Fullname & string & & Họ và tên \\ \hline
+                    3 & Username & string & & Tên đăng nhập \\ \hline
+                    4 & Password & string & & Mật khẩu \\ \hline
+                    5 & PhoneNumber & string & & Số điện thoại \\ \hline
+                    6 & EmailAddress & string & & Địa chỉ email \\ \hline
+                    7 & RoleId & int & Khóa ngoại & Mã vai trò \\ \hline
+                \end{tabular}
+            \subsubsection{Bảng vai trò}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & RoleId & int & Khóa chính & Mã vai trò \\ \hline
+                    2 & RoleName & string & & Tên vai trò \\ \hline
+                \end{tabular}
+    \section{Thiết kế dữ liệu cho bảng nhập kho}
+        \subsection{Sơ đồ ERD}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{Import.drawio.png}
+            \end{figure}
+        \subsection{Mô tả bảng dữ liệu}
+            \subsubsection{Bảng nhập kho}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & ImportId & int & Khóa chính & Mã phiếu nhập \\ \hline
+                    2 & ImportDate & datetime & & Ngày lập phiếu \\ \hline
+                    3 & Total & double & & Tổng tiền \\ \hline
+                    4 & UserId & int & Khóa ngoại & Mã người dùng \\ \hline
+                    5 & IsVoided & bool & & Trạng thái phiếu \\ \hline
+                \end{tabular}
+            \subsubsection{Bảng chi tiết phiều nhập}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & DetailId & int & Khóa chính & Mã chi tiết \\ \hline
+                    2 & ImportId & int & Khóa ngoại & Mã phiếu nhập \\ \hline
+                    3 & BookId & int & Khóa ngoại & Mã sách \\ \hline
+                    4 & Quantity & int & & Số lượng nhập \\ \hline
+                    5 & ImportPrice & double & & Giá nhập \\ \hline
+                \end{tabular}
+    \section{Thiết kế dữ liệu cho bảng khuyến mãi}
+        \subsection{Sơ đồ ERD}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.75\linewidth]{Promotion.drawio.png}
+            \end{figure}
+        \subsection{Mô tả bảng dữ liệu}
+            \subsubsection{Bảng khuyến mãi}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & PromotionId & int & Khóa chính & Mã khuyến mãi \\ \hline
+                    2 & PromotionName & string & & Tên chương trình \\ \hline
+                    3 & StartDate & datetime & & Ngày bắt đầu \\ \hline
+                    4 & EndDate & datetime & & Ngày kết thúc \\ \hline
+                    5 & Discount & int & & Giảm giá (\%) \\ \hline
+                \end{tabular}
+            \subsubsection{Bảng đối tượng áp dụng}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & PromotionId & int & Khóa ngoại & Mã khuyến mãi \\ \hline
+                    2 & BookId & int & Khóa ngoại & Mã sách \\ \hline
+                \end{tabular}
+    \section{Thiết kế dữ liệu cho bảng hóa đơn}
+        \subsection{Sơ đồ ERD}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\linewidth]{Invoice.drawio.png}
+            \end{figure}
+        \subsection{Mô tả bảng dữ liệu}
+            \subsubsection{Bảng hóa đơn}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & InvoiceId & int & Khóa chính & Mã hóa đơn \\ \hline
+                    2 & InvoiceDate & datetime & & Ngày lập hóa đơn \\ \hline
+                    3 & Total & double & & Tổng tiền \\ \hline
+                    4 & UserId & int & Khóa ngoại & Mã người dùng \\ \hline
+                    5 & IsVoided & bool & & Trạng thái hóa đơn \\ \hline
+                \end{tabular}
+            \subsubsection{Bảng chi tiết hóa đơn}
+                \begin{tabular}{|c|l|l|l|l|}
+                    \hline
+                    \textbf{STT} & \textbf{Thuộc tính} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+                    1 & DetailId & int & Khóa chính & Mã chi tiết \\ \hline
+                    2 & InvoiceId & int & Khóa ngoại & Mã hóa đơn \\ \hline
+                    3 & BookId & int & Khóa ngoại & Mã sách \\ \hline
+                    4 & Quantity & int & & Số lượng bán \\ \hline
+                    5 & ImportPrice & double & & Giá bán \\ \hline
+                    6 & Discount & int & & Giảm giá \\ \hline
+                \end{tabular}
+\chapter{Thiết kế giao diện}
+    \section{Màn hình chính}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{home.png}
+        \end{figure}
+    \section{Màn hình quản lý sách}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{books.png}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{add-book.png}
+        \end{figure}
+    \section{Màn hình quản lý người dùng}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{user-list.png}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\linewidth]{add-user.png}
+        \end{figure}
+    \section{Màn hình danh sách hóa đơn}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{invoice-list.png}
+        \end{figure}
+    \section{Màn hình danh sách phiếu nhập}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{import-list.png}
+        \end{figure}
+    \section{Màn hình báo cáo tháng}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{report-revenue.png}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{report-stock.png}
+        \end{figure}
+    \section{Màn hình thay đổi quy định}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{regulation.png}
+        \end{figure}
+    \section{Màn hình quản lý khuyến mãi}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{promo-list.png}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\linewidth]{add-promo.png}
+        \end{figure}
+    \section{Màn hình danh sách bán chạy}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{bestseller.png}
+        \end{figure}
+    \section{Màn hình quản lý tồn kho}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{stock.png}
+        \end{figure}
+    \section{Màn hình nhập kho}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{import.png}
+        \end{figure}
+    \section{Màn hình lập hóa đơn}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{invoice.png}
+        \end{figure}
+
+\chapter{Cài đặt và kiểm thử}
+    \begin{tabular}{|c|l|c|c|}
+        \hline
+        \textbf{STT} & \textbf{Tên yêu cầu} & \textbf{Mức độ hoàn thành} & \textbf{Ghi chú} \\ \hline
+        1 & Quản lý đầu sách & 100\% & \\ \hline
+        2 & Quản lý tồn kho & 100\% & \\ \hline
+        3 & Lập phiếu nhập sách & 100\% & \\ \hline
+        4 & Tra cứu sách & 100\% & \\ \hline
+        5 & Tạo chương trình khuyến mãi & 100\% & \\ \hline
+        6 & Lập hóa đơn bán sách & 100\% & \\ \hline 
+        7 & Quản lý người dùng & 100\% & \\ \hline 
+        8 & Lập báo cáo tháng & 100\% & \\ \hline
+        9 & Thay đổi quy định & 100\% & \\ \hline
+    \end{tabular}
+
+\chapter{Nhận xét và kết luận}
+    \section{Nhận xét}
+        \subsection{Ưu điểm}
+            \begin{itemize}
+                \item Độ tin cậy: Hệ thống có thể kiểm tra dữ liệu nhập vào và cho phép tự động thực hiện một số kiểm tra tự động đối chiếu và tìm những bản ghi có sự chênh lệch về dữ liệu, thông báo các số liệu nhập sai để có hướng khắc phục.
+                \item Tính bảo mật: hệ thống phân quyền rõ ràng với từng loại tài khoản, tương ứng với quyền hạn của các chức vụ khác nhau.
+                \item Dễ sử dụng: Chương trình được thiết kế trên giao diện đồ họa với các cửa sổ, hộp thoại và hướng dẫn sử dụng hợp lý.
+                \item Chương trình có thể triển khai trên mọi máy tính mà không cần cài đặt SQL Server.
+            \end{itemize}
+        \subsection{Nhược điểm}
+            \begin{itemize}
+                \item Chưa thực hiện được chức năng in hóa đơn, xuất hóa đơn sang pdf.
+                \item Chưa có các chức năng để quản lý khách hàng.
+            \end{itemize}
+    \section{Hướng phát triển}
+        \begin{itemize}
+            \item Chuyển ứng dụng sang nền tảng web để tăng tính tiện lợi.
+            \item Có thể lấy dữ liệu từ bên ngoài (từ bảng tính Excel, Access, …).
+            \item Phát triển cho phần mềm có khả năng cài đặt tự BackUp, Restore, lưu trữ dữ liệu trên cloud.
+        \end{itemize}
 \end{document}
